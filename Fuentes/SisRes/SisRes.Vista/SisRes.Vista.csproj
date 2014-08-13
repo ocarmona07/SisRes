@@ -47,12 +47,53 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Hotel\bg.gif" />
+    <Content Include="App_Themes\Hotel\bg_top.png" />
+    <Content Include="App_Themes\Hotel\footer_menu_line.gif" />
+    <Content Include="App_Themes\Hotel\icon1.jpg" />
+    <Content Include="App_Themes\Hotel\icon2.jpg" />
+    <Content Include="App_Themes\Hotel\icon3.jpg" />
+    <Content Include="App_Themes\Hotel\icon4.jpg" />
+    <Content Include="App_Themes\Hotel\img1.jpg" />
+    <Content Include="App_Themes\Hotel\img2.jpg" />
+    <Content Include="App_Themes\Hotel\img3.jpg" />
+    <Content Include="App_Themes\Hotel\img4.jpg" />
+    <Content Include="App_Themes\Hotel\line_vert1.gif" />
+    <Content Include="App_Themes\Hotel\line_vert2.gif" />
+    <Content Include="App_Themes\Hotel\logo.png" />
+    <Content Include="App_Themes\Hotel\marker_1.gif" />
+    <Content Include="App_Themes\Hotel\page1_img1.jpg" />
+    <Content Include="App_Themes\Hotel\page2_img1.jpg" />
+    <Content Include="App_Themes\Hotel\page2_img2.jpg" />
+    <Content Include="App_Themes\Hotel\page2_img3.jpg" />
+    <Content Include="App_Themes\Hotel\page2_img4.jpg" />
+    <Content Include="App_Themes\Hotel\page3_img1.jpg" />
+    <Content Include="App_Themes\Hotel\page3_img3.jpg" />
+    <Content Include="App_Themes\Hotel\page3_img4.jpg" />
+    <Content Include="App_Themes\Hotel\page4_img1.jpg" />
+    <Content Include="App_Themes\Hotel\select.gif" />
+    <Content Include="App_Themes\Hotel\title_marker1.jpg" />
+    <Content Include="App_Themes\Hotel\title_marker2.jpg" />
+    <Content Include="App_Themes\Hotel\title_marker3.jpg" />
+    <Content Include="Css\ie.css" />
+    <Content Include="Css\layout.css" />
+    <Content Include="Css\reset.css" />
+    <Content Include="Css\style.css" />
     <Content Include="Index.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Scripts\Adamina_400.font.js" />
+    <Content Include="Scripts\atooltip.jquery.js" />
+    <Content Include="Scripts\cufon-replace.js" />
+    <Content Include="Scripts\cufon-yui.js" />
+    <Content Include="Scripts\html5.js" />
     <Content Include="Scripts\jquery-1.11.1.js" />
     <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.jqtransform.js" />
+    <Content Include="Scripts\kwicks-1.5.1.pack.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -76,15 +117,19 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Base.Master" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Themes\Hotel\" />
-    <Folder Include="Css\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

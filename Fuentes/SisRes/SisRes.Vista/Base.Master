@@ -5,29 +5,29 @@
 <head runat="server">
     <title>SisRes - Sistema de Reservas para Hotel</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
-    <link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-    <script type="text/javascript" src="js/cufon-yui.js"></script>
-    <script type="text/javascript" src="js/cufon-replace.js"></script>
-    <script type="text/javascript" src="js/Adamina_400.font.js"></script>
-    <script type="text/javascript" src="js/jquery.jqtransform.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/kwicks-1.5.1.pack.js"></script>
-    <script type="text/javascript" src="js/atooltip.jquery.js"></script>
-    <script type="text/javascript">        Cufon.now(); </script>
-    <script>
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/layout.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <script type="text/javascript" src="Scripts/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="Scripts/cufon-yui.js"></script>
+    <script type="text/javascript" src="Scripts/cufon-replace.js"></script>
+    <script type="text/javascript" src="Scripts/Adamina_400.font.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.jqtransform.js"></script>
+    <script type="text/javascript" src="Scripts/script.js"></script>
+    <script type="text/javascript" src="Scripts/kwicks-1.5.1.pack.js"></script>
+    <script type="text/javascript" src="Scripts/atooltip.jquery.js"></script>
+    <script type="text/javascript">
         $(document).ready(function () {
             $('.kwicks').kwicks({
                 max: 500,
                 spacing: 0,
                 event: 'mouseover'
             });
+        });
 
-        })
+        Cufon.now();
     </script>
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body id="page1">
@@ -36,53 +36,28 @@
             <div class="main">
                 <!-- header -->
                 <header>
-						<h1><a href="index.html" id="logo">SisRes</a></h1>
-						
-					</header>
+                    <h1><a href="Index.aspx" id="logo">SisRes</a></h1>
+				</header>
                 <div class="box">
                     <div class="ic">
                         SisRes</div>
                     <nav>
-							<ul id="menu">
-								<li class="active"><a href="index.html">Reservas</a></li>
-								<li><a href="Services.html">Servicios</a></li>
-								
-							</ul>
-						</nav>
-                    <div class="kwicks-wrapper marg_bot1">
-                        <ul class="kwicks horizontal">
-                            <li>
-                                <img src="images/img1.jpg" alt=""></li>
-                            <li>
-                                <img src="images/img2.jpg" alt=""></li>
-                            <li>
-                                <img src="images/img3.jpg" alt=""></li>
-                            <li>
-                                <img src="images/img4.jpg" alt=""></li>
+                        <ul id="menu">
+                            <li class="active"><a href="Reservas.aspx">Reservas</a></li>
+                            <li><a href="Administracion.aspx">Administración</a></li>
                         </ul>
-                    </div>
+				    </nav>
                 </div>
-                <div class="pad">
-                    <div class="wrapper line3">
-                        <div class="col2">
-                            <h2>
-                                Bienvenidos a Nuestro Sistema Reservas Hotel!</h2>
-                            <p class="pad_bot2">
-                                Nuestro software de gestión de central de reservas permite a un destino, una asociación
-                                o institución encargada de la promoción turística de una zona, disponer de un sistema
-                                centralizado de gestión de establecimientos y servicios turísticos para promocionar
-                                y comercializar sus recursos.</p>
-                            <a href="#" class="button1">Acceder</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="main">
-                </div>
-                <form id="form1" runat="server">
-                <div style="display: none;">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    </asp:ContentPlaceHolder>
-                </div>
-                </form>
+                <article id="content" class="box1">
+                    <asp:ContentPlaceHolder ID="cphMain" runat="server" />
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="col2" style="text-align: center;">
+            Lounge Hotel &copy; 2011 <a rel="nofollow" href="http://www.templatemonster.com/" target="_blank">Website Template</a> by TemplateMonster.com
+        </div>
+    </footer>
 </body>
 </html>
