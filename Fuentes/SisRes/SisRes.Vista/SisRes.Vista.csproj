@@ -47,6 +47,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administracion.aspx" />
     <Content Include="App_Themes\Hotel\bg.gif" />
     <Content Include="App_Themes\Hotel\bg_top.png" />
     <Content Include="App_Themes\Hotel\footer_menu_line.gif" />
@@ -71,6 +72,7 @@
     <Content Include="App_Themes\Hotel\page3_img3.jpg" />
     <Content Include="App_Themes\Hotel\page3_img4.jpg" />
     <Content Include="App_Themes\Hotel\page4_img1.jpg" />
+    <Content Include="App_Themes\Hotel\recepcion++.jpg" />
     <Content Include="App_Themes\Hotel\select.gif" />
     <Content Include="App_Themes\Hotel\title_marker1.jpg" />
     <Content Include="App_Themes\Hotel\title_marker2.jpg" />
@@ -80,7 +82,9 @@
     <Content Include="Css\reset.css" />
     <Content Include="Css\style.css" />
     <Content Include="Index.aspx" />
+    <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Reservas.aspx" />
     <Content Include="Scripts\Adamina_400.font.js" />
     <Content Include="Scripts\atooltip.jquery.js" />
     <Content Include="Scripts\cufon-replace.js" />
@@ -103,6 +107,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administracion.aspx.cs">
+      <DependentUpon>Administracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion.aspx.designer.cs">
+      <DependentUpon>Administracion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Base.Master.cs">
       <DependentUpon>Base.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -117,6 +128,13 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -125,6 +143,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservas.aspx.cs">
+      <DependentUpon>Reservas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservas.aspx.designer.cs">
+      <DependentUpon>Reservas.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Base.Master" />

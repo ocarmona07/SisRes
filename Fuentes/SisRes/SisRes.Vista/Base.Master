@@ -43,10 +43,12 @@
                         SisRes</div>
                     <nav>
                         <ul id="menu">
+                            <li><a href="Inicio.aspx.aspx">Inicio</a></li>
                             <li class="active"><a href="Reservas.aspx">Reservas</a></li>
                             <li><a href="Administracion.aspx">Administración</a></li>
                         </ul>
 				    </nav>
+                    
                 </div>
                 <article id="content" class="box1">
                     <asp:ContentPlaceHolder ID="cphMain" runat="server" />
@@ -56,7 +58,9 @@
     </div>
     <footer>
         <div class="col2" style="text-align: center;">
-            Lounge Hotel &copy; 2011 <a rel="nofollow" href="http://www.templatemonster.com/" target="_blank">Website Template</a> by TemplateMonster.com
+            <br />
+            <br />
+            Hotel Reservas&copy; 2014 <a rel="nofollow" href="http://www.linacs.cl" target="_blank"></a> linacs.cl
         </div>
     </footer>
 </body>

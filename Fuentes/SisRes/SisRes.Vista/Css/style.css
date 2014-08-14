@@ -439,10 +439,11 @@ footer
 }
 #form1
 {
-    width: 240px;
+    width: 700px;
     float: right;
     padding: 30px;
     background: #12110f;
+    text-align: center;
 }
 #form1 h2
 {
