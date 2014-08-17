@@ -4,7 +4,12 @@ IF ( EXISTS ( SELECT    name
               WHERE     ( '[' + name + ']' = 'SisRes'
                           OR name = 'SisRes'
                         ) ) )
-    DROP DATABASE SisRes
+    BEGIN
+        EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'SisRes'
+        ALTER DATABASE SisRes
+        SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
+        DROP DATABASE SisRes                      	
+    END
 GO
 
 CREATE DATABASE SisRes
@@ -90,7 +95,7 @@ go
 /*==============================================================*/
 CREATE TABLE HAB_Habitaciones
     (
-      IdHabitacion INT NOT NULL ,
+      IdHabitacion INT IDENTITY ,
       IdTipoHabitacion INT NOT NULL ,
       Numero INT NOT NULL ,
       Observaciones VARCHAR(MAX) NULL ,
@@ -118,7 +123,7 @@ go
 /*==============================================================*/
 CREATE TABLE RES_DetalleReserva
     (
-      IdDetalleReserva INT NOT NULL ,
+      IdDetalleReserva INT IDENTITY ,
       IdServicio INT NULL ,
       Precio MONEY NULL ,
       CONSTRAINT PK_RES_DETALLERESERVA PRIMARY KEY ( IdDetalleReserva )
@@ -130,7 +135,7 @@ go
 /*==============================================================*/
 CREATE TABLE RES_ReservaHabitacion
     (
-      IdReserva INT NOT NULL ,
+      IdReserva INT IDENTITY ,
       RUTCliente INT NULL ,
       IdHabitacion INT NULL ,
       IdDetalleReserva INT NULL ,
@@ -146,7 +151,7 @@ go
 /*==============================================================*/
 CREATE TABLE SER_Servicios
     (
-      IdServicio INT NOT NULL ,
+      IdServicio INT IDENTITY ,
       Servicio VARCHAR(30) NOT NULL ,
       Descripcion VARCHAR(MAX) NULL ,
       Precio MONEY NOT NULL ,
