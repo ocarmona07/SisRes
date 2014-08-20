@@ -42,6 +42,12 @@
     <Compile Include="GeneralDa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SisRes.Entidades\SisRes.Entidades.csproj">
+      <Project>{80FF6EEA-5F0A-489F-87A2-CFA8B9EB6769}</Project>
+      <Name>SisRes.Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

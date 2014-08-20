@@ -48,35 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administracion.aspx" />
-    <Content Include="App_Themes\Hotel\bg.gif" />
-    <Content Include="App_Themes\Hotel\bg_top.png" />
-    <Content Include="App_Themes\Hotel\footer_menu_line.gif" />
-    <Content Include="App_Themes\Hotel\icon1.jpg" />
-    <Content Include="App_Themes\Hotel\icon2.jpg" />
-    <Content Include="App_Themes\Hotel\icon3.jpg" />
-    <Content Include="App_Themes\Hotel\icon4.jpg" />
-    <Content Include="App_Themes\Hotel\img1.jpg" />
-    <Content Include="App_Themes\Hotel\img2.jpg" />
-    <Content Include="App_Themes\Hotel\img3.jpg" />
-    <Content Include="App_Themes\Hotel\img4.jpg" />
-    <Content Include="App_Themes\Hotel\line_vert1.gif" />
-    <Content Include="App_Themes\Hotel\line_vert2.gif" />
-    <Content Include="App_Themes\Hotel\logo.png" />
-    <Content Include="App_Themes\Hotel\marker_1.gif" />
-    <Content Include="App_Themes\Hotel\page1_img1.jpg" />
-    <Content Include="App_Themes\Hotel\page2_img1.jpg" />
-    <Content Include="App_Themes\Hotel\page2_img2.jpg" />
-    <Content Include="App_Themes\Hotel\page2_img3.jpg" />
-    <Content Include="App_Themes\Hotel\page2_img4.jpg" />
-    <Content Include="App_Themes\Hotel\page3_img1.jpg" />
-    <Content Include="App_Themes\Hotel\page3_img3.jpg" />
-    <Content Include="App_Themes\Hotel\page3_img4.jpg" />
-    <Content Include="App_Themes\Hotel\page4_img1.jpg" />
-    <Content Include="App_Themes\Hotel\recepcion++.jpg" />
-    <Content Include="App_Themes\Hotel\select.gif" />
-    <Content Include="App_Themes\Hotel\title_marker1.jpg" />
-    <Content Include="App_Themes\Hotel\title_marker2.jpg" />
-    <Content Include="App_Themes\Hotel\title_marker3.jpg" />
     <Content Include="Css\ie.css" />
     <Content Include="Css\layout.css" />
     <Content Include="Css\reset.css" />
@@ -183,7 +154,16 @@
   <ItemGroup>
     <Content Include="Base.Master" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SisRes.Entidades\SisRes.Entidades.csproj">
+      <Project>{80FF6EEA-5F0A-489F-87A2-CFA8B9EB6769}</Project>
+      <Name>SisRes.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SisRes.Negocio\SisRes.Negocio.csproj">
+      <Project>{39358A30-727C-41DB-85F6-FC822041AE7D}</Project>
+      <Name>SisRes.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

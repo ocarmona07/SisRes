@@ -34,21 +34,25 @@
     <div class="bg1">
         <div class="bg2">
             <div class="main">
-                <!-- header -->
                 <header>
-                    <h1><a href="Index.aspx" id="logo">SisRes</a></h1>
+                    <h1><a href="Inicio.aspx" id="logo">SisRes</a></h1>
 				</header>
                 <div class="box">
                     <div class="ic">
                         SisRes</div>
                     <nav>
                         <ul id="menu">
-                            <li><a href="Inicio.aspx.aspx">Inicio</a></li>
-                            <li class="active"><a href="Reservas.aspx">Reservas</a></li>
-                            <li><a href="Administracion.aspx">Administración</a></li>
+                            <li id="liInicio" runat="server">
+                                <a href="Inicio.aspx">Inicio</a>
+                            </li>
+                            <li id="liReservas" runat="server">
+                                <a href="Reservas.aspx">Reservas</a>
+                            </li>
+                            <li id="liAdministracion" runat="server">
+                                <a href="Administracion.aspx">Administración</a>
+                            </li>
                         </ul>
 				    </nav>
-                    
                 </div>
                 <article id="content" class="box1">
                     <asp:ContentPlaceHolder ID="cphMain" runat="server" />
@@ -57,11 +61,7 @@
         </div>
     </div>
     <footer>
-        <div class="col2" style="text-align: center;">
-            <br />
-            <br />
-            Hotel Reservas&copy; 2014 <a rel="nofollow" href="http://www.linacs.cl" target="_blank"></a> linacs.cl
-        </div>
+        <div id="divCopyright" runat="server" class="col2" style="text-align: center;"></div>
     </footer>
 </body>
 </html>

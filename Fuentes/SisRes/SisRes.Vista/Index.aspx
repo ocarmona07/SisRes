@@ -1,16 +1,86 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SisRes.Vista._Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SisRes.Vista.Default" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="es">
 <head runat="server">
-    <title></title>
+    <title>SisRes - Sistema de Reservas para Hotel</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/layout.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <script type="text/javascript" src="Scripts/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="Scripts/cufon-yui.js"></script>
+    <script type="text/javascript" src="Scripts/cufon-replace.js"></script>
+    <script type="text/javascript" src="Scripts/Adamina_400.font.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.jqtransform.js"></script>
+    <script type="text/javascript" src="Scripts/script.js"></script>
+    <script type="text/javascript" src="Scripts/kwicks-1.5.1.pack.js"></script>
+    <script type="text/javascript" src="Scripts/atooltip.jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.kwicks').kwicks({
+                max: 500,
+                spacing: 0,
+                event: 'mouseover'
+            });
+        });
+
+        Cufon.now();
+    </script>
 </head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
+<body id="page1">
+    <div class="bg1">
+        <div class="bg2">
+            <div class="main">
+                <header>
+                    <h1><a href="Index.aspx" id="logo">SisRes</a></h1>
+				</header>
+                <div class="box">
+                    <div class="ic">
+                        SisRes</div>
+                    <nav>
+                        <ul id="menu">
+                            <li class="active">
+                                <a href="Index.aspx">Inicio</a>
+                            </li>
+                        </ul>
+				    </nav>
+                </div>
+                <article id="content" class="box1">
+                    <form id="frmLogin" runat="server">
+                        <asp:Table runat="server" Width="100%">
+                            <asp:TableRow runat="server" Height="120px">
+                                <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Bottom">
+                                    <asp:Label runat="server" Text="RUT:" />
+                                </asp:TableCell>
+                                <asp:TableCell runat="server" VerticalAlign="Bottom">
+                                    <asp:TextBox ID="tbRut" runat="server" Width="120px" />
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow runat="server" Height="50px">
+                                <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle">
+                                    <asp:Label runat="server" Text="Contraseña:" />                                
+                                </asp:TableCell>
+                                <asp:TableCell runat="server" VerticalAlign="Middle">
+                                    <asp:TextBox ID="tbPass" runat="server" Width="120px" />
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow runat="server" Height="50px">
+                                <asp:TableCell runat="server" HorizontalAlign="Center" ColumnSpan="2">
+                                    <asp:Button runat="server" Text="Aceptar" Width="130px" Height="30px" />
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow runat="server" Height="150px">
+                                <asp:TableCell runat="server" HorizontalAlign="Right" ColumnSpan="2" />
+                            </asp:TableRow>
+                        </asp:Table>
+                    </form>
+                </article>
+            </div>
+        </div>
     </div>
-    </form>
+    <footer>
+        <div id="divCopyright" runat="server" class="col2" style="text-align: center;"></div>
+    </footer>
 </body>
 </html>

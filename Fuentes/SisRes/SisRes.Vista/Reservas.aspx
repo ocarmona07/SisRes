@@ -52,7 +52,7 @@
                         <asp:Label runat="server" Text="Dirección:" Style="padding-right: 5px;" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left" ColumnSpan="2">
-                    <asp:TextBox ID="tbDireccion" runat="server" Width="200px" />
+                    <asp:TextBox ID="tbDireccion" runat="server" Width="210px" />
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
