@@ -25,6 +25,10 @@
                 ((HtmlGenericControl)Master.FindControl("liReservas")).Attributes.Add("class", "active");
             }
 
+            if (!IsPostBack)
+            {
+                ddlTipoCliente.DataSource = 
+            }
         }
     }
 }

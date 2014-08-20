@@ -5,6 +5,9 @@
     using System.Linq;
     using System.Text;
 
+    /// <summary>
+    /// Clase de negocio para métodos de uso general
+    /// </summary>
     public class GeneralBo
     {
         public string Copyright = "Hotel Reservas&copy; " + DateTime.Today.Year

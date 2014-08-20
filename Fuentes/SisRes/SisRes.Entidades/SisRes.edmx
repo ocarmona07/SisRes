@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SisResModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SisResModelStoreContainer">
+          <EntitySet Name="GEN_Clientes" EntityType="SisResModel.Store.GEN_Clientes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GEN_Rol" EntityType="SisResModel.Store.GEN_Rol" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GEN_TipoCliente" EntityType="SisResModel.Store.GEN_TipoCliente" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GEN_Usuarios" EntityType="SisResModel.Store.GEN_Usuarios" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HAB_Habitaciones" EntityType="SisResModel.Store.HAB_Habitaciones" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HAB_HabitacionImagenes" EntityType="SisResModel.Store.HAB_HabitacionImagenes" store:Type="Tables" store:Schema="dbo" store:Name="HAB_HabitacionImagenes">
+            <DefiningQuery>SELECT 
+      [HAB_HabitacionImagenes].[IdHabitacion] AS [IdHabitacion], 
+      [HAB_HabitacionImagenes].[Imagen] AS [Imagen]
+      FROM [dbo].[HAB_HabitacionImagenes] AS [HAB_HabitacionImagenes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HAB_TipoHabitacion" EntityType="SisResModel.Store.HAB_TipoHabitacion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RES_DetalleReserva" EntityType="SisResModel.Store.RES_DetalleReserva" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RES_ReservaHabitacion" EntityType="SisResModel.Store.RES_ReservaHabitacion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SER_Servicios" EntityType="SisResModel.Store.SER_Servicios" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_GEN_CLIE_REFERENCE_GEN_TIPO" Association="SisResModel.Store.FK_GEN_CLIE_REFERENCE_GEN_TIPO">
+            <End Role="GEN_TipoCliente" EntitySet="GEN_TipoCliente" />
+            <End Role="GEN_Clientes" EntitySet="GEN_Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GEN_USUA_REFERENCE_GEN_ROL" Association="SisResModel.Store.FK_GEN_USUA_REFERENCE_GEN_ROL">
+            <End Role="GEN_Rol" EntitySet="GEN_Rol" />
+            <End Role="GEN_Usuarios" EntitySet="GEN_Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HAB_HABI_REFERENCE_HAB_HABI" Association="SisResModel.Store.FK_HAB_HABI_REFERENCE_HAB_HABI">
+            <End Role="HAB_Habitaciones" EntitySet="HAB_Habitaciones" />
+            <End Role="HAB_HabitacionImagenes" EntitySet="HAB_HabitacionImagenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HAB_HABI_REFERENCE_HAB_TIPO" Association="SisResModel.Store.FK_HAB_HABI_REFERENCE_HAB_TIPO">
+            <End Role="HAB_TipoHabitacion" EntitySet="HAB_TipoHabitacion" />
+            <End Role="HAB_Habitaciones" EntitySet="HAB_Habitaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RES_DETA_REFERENCE_SER_SERV" Association="SisResModel.Store.FK_RES_DETA_REFERENCE_SER_SERV">
+            <End Role="SER_Servicios" EntitySet="SER_Servicios" />
+            <End Role="RES_DetalleReserva" EntitySet="RES_DetalleReserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RES_RESE_REF_RESER_GEN_CLIE" Association="SisResModel.Store.FK_RES_RESE_REF_RESER_GEN_CLIE">
+            <End Role="GEN_Clientes" EntitySet="GEN_Clientes" />
+            <End Role="RES_ReservaHabitacion" EntitySet="RES_ReservaHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RES_RESE_REF_RESER_GEN_USUA" Association="SisResModel.Store.FK_RES_RESE_REF_RESER_GEN_USUA">
+            <End Role="GEN_Usuarios" EntitySet="GEN_Usuarios" />
+            <End Role="RES_ReservaHabitacion" EntitySet="RES_ReservaHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RES_RESE_REFERENCE_HAB_HABI" Association="SisResModel.Store.FK_RES_RESE_REFERENCE_HAB_HABI">
+            <End Role="HAB_Habitaciones" EntitySet="HAB_Habitaciones" />
+            <End Role="RES_ReservaHabitacion" EntitySet="RES_ReservaHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RES_RESE_REFERENCE_RES_DETA" Association="SisResModel.Store.FK_RES_RESE_REFERENCE_RES_DETA">
+            <End Role="RES_DetalleReserva" EntitySet="RES_DetalleReserva" />
+            <End Role="RES_ReservaHabitacion" EntitySet="RES_ReservaHabitacion" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="GEN_Clientes">
+          <Key>
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="RUT" Type="int" Nullable="false" />
+          <Property Name="DV" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Nombres" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="ApPaterno" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="ApMaterno" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Direccion" Type="varchar(max)" />
+          <Property Name="Fono" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="IdTipoCliente" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GEN_Rol">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Rol" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="GEN_TipoCliente">
+          <Key>
+            <PropertyRef Name="IdTipoCliente" />
+          </Key>
+          <Property Name="IdTipoCliente" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoCliente" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+          <Property Name="Descuento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GEN_Usuarios">
+          <Key>
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="RUT" Type="int" Nullable="false" />
+          <Property Name="DV" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Nombres" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="ApPaterno" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="ApMaterno" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Fono" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="IdRol" Type="int" Nullable="false" />
+          <Property Name="Clave" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HAB_Habitaciones">
+          <Key>
+            <PropertyRef Name="IdHabitacion" />
+          </Key>
+          <Property Name="IdHabitacion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdTipoHabitacion" Type="int" Nullable="false" />
+          <Property Name="Numero" Type="int" Nullable="false" />
+          <Property Name="Observaciones" Type="varchar(max)" />
+          <Property Name="Disponible" Type="bit" Nullable="false" />
+          <Property Name="Reserva" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'SisRes.dbo.HAB_HabitacionImagenes' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="HAB_HabitacionImagenes">
+          <Key>
+            <PropertyRef Name="IdHabitacion" />
+            <PropertyRef Name="Imagen" />
+          </Key>
+          <Property Name="IdHabitacion" Type="int" Nullable="false" />
+          <Property Name="Imagen" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HAB_TipoHabitacion">
+          <Key>
+            <PropertyRef Name="IdTipoHabitacion" />
+          </Key>
+          <Property Name="IdTipoHabitacion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoHabitacion" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+          <Property Name="Precio" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RES_DetalleReserva">
+          <Key>
+            <PropertyRef Name="IdDetalleReserva" />
+          </Key>
+          <Property Name="IdDetalleReserva" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdServicio" Type="int" />
+          <Property Name="Precio" Type="money" />
+        </EntityType>
+        <EntityType Name="RES_ReservaHabitacion">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RUTUsuario" Type="int" Nullable="false" />
+          <Property Name="RUTCliente" Type="int" Nullable="false" />
+          <Property Name="IdHabitacion" Type="int" Nullable="false" />
+          <Property Name="IdDetalleReserva" Type="int" Nullable="false" />
+          <Property Name="HoraFechaRes" Type="datetime" Nullable="false" />
+          <Property Name="DiasReserva" Type="int" Nullable="false" />
+          <Property Name="Descuento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SER_Servicios">
+          <Key>
+            <PropertyRef Name="IdServicio" />
+          </Key>
+          <Property Name="IdServicio" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Servicio" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+          <Property Name="Precio" Type="money" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_GEN_CLIE_REFERENCE_GEN_TIPO">
+          <End Role="GEN_TipoCliente" Type="SisResModel.Store.GEN_TipoCliente" Multiplicity="1" />
+          <End Role="GEN_Clientes" Type="SisResModel.Store.GEN_Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GEN_TipoCliente">
+              <PropertyRef Name="IdTipoCliente" />
+            </Principal>
+            <Dependent Role="GEN_Clientes">
+              <PropertyRef Name="IdTipoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GEN_USUA_REFERENCE_GEN_ROL">
+          <End Role="GEN_Rol" Type="SisResModel.Store.GEN_Rol" Multiplicity="1" />
+          <End Role="GEN_Usuarios" Type="SisResModel.Store.GEN_Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GEN_Rol">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="GEN_Usuarios">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HAB_HABI_REFERENCE_HAB_HABI">
+          <End Role="HAB_Habitaciones" Type="SisResModel.Store.HAB_Habitaciones" Multiplicity="1" />
+          <End Role="HAB_HabitacionImagenes" Type="SisResModel.Store.HAB_HabitacionImagenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HAB_Habitaciones">
+              <PropertyRef Name="IdHabitacion" />
+            </Principal>
+            <Dependent Role="HAB_HabitacionImagenes">
+              <PropertyRef Name="IdHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HAB_HABI_REFERENCE_HAB_TIPO">
+          <End Role="HAB_TipoHabitacion" Type="SisResModel.Store.HAB_TipoHabitacion" Multiplicity="1" />
+          <End Role="HAB_Habitaciones" Type="SisResModel.Store.HAB_Habitaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HAB_TipoHabitacion">
+              <PropertyRef Name="IdTipoHabitacion" />
+            </Principal>
+            <Dependent Role="HAB_Habitaciones">
+              <PropertyRef Name="IdTipoHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RES_DETA_REFERENCE_SER_SERV">
+          <End Role="SER_Servicios" Type="SisResModel.Store.SER_Servicios" Multiplicity="0..1" />
+          <End Role="RES_DetalleReserva" Type="SisResModel.Store.RES_DetalleReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SER_Servicios">
+              <PropertyRef Name="IdServicio" />
+            </Principal>
+            <Dependent Role="RES_DetalleReserva">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RES_RESE_REF_RESER_GEN_CLIE">
+          <End Role="GEN_Clientes" Type="SisResModel.Store.GEN_Clientes" Multiplicity="1" />
+          <End Role="RES_ReservaHabitacion" Type="SisResModel.Store.RES_ReservaHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GEN_Clientes">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="RES_ReservaHabitacion">
+              <PropertyRef Name="RUTCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RES_RESE_REF_RESER_GEN_USUA">
+          <End Role="GEN_Usuarios" Type="SisResModel.Store.GEN_Usuarios" Multiplicity="1" />
+          <End Role="RES_ReservaHabitacion" Type="SisResModel.Store.RES_ReservaHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GEN_Usuarios">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="RES_ReservaHabitacion">
+              <PropertyRef Name="RUTUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RES_RESE_REFERENCE_HAB_HABI">
+          <End Role="HAB_Habitaciones" Type="SisResModel.Store.HAB_Habitaciones" Multiplicity="1" />
+          <End Role="RES_ReservaHabitacion" Type="SisResModel.Store.RES_ReservaHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HAB_Habitaciones">
+              <PropertyRef Name="IdHabitacion" />
+            </Principal>
+            <Dependent Role="RES_ReservaHabitacion">
+              <PropertyRef Name="IdHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RES_RESE_REFERENCE_RES_DETA">
+          <End Role="RES_DetalleReserva" Type="SisResModel.Store.RES_DetalleReserva" Multiplicity="1" />
+          <End Role="RES_ReservaHabitacion" Type="SisResModel.Store.RES_ReservaHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RES_DetalleReserva">
+              <PropertyRef Name="IdDetalleReserva" />
+            </Principal>
+            <Dependent Role="RES_ReservaHabitacion">
+              <PropertyRef Name="IdDetalleReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SisResModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GEN_Clientes" EntityType="SisResModel.GEN_Clientes" />
+          <EntitySet Name="GEN_Rol" EntityType="SisResModel.GEN_Rol" />
+          <EntitySet Name="GEN_TipoCliente" EntityType="SisResModel.GEN_TipoCliente" />
+          <EntitySet Name="GEN_Usuarios" EntityType="SisResModel.GEN_Usuarios" />
+          <EntitySet Name="HAB_Habitaciones" EntityType="SisResModel.HAB_Habitaciones" />
+          <EntitySet Name="HAB_HabitacionImagenes" EntityType="SisResModel.HAB_HabitacionImagenes" />
+          <EntitySet Name="HAB_TipoHabitacion" EntityType="SisResModel.HAB_TipoHabitacion" />
+          <EntitySet Name="RES_DetalleReserva" EntityType="SisResModel.RES_DetalleReserva" />
+          <EntitySet Name="RES_ReservaHabitacion" EntityType="SisResModel.RES_ReservaHabitacion" />
+          <EntitySet Name="SER_Servicios" EntityType="SisResModel.SER_Servicios" />
+          <AssociationSet Name="FK_GEN_CLIE_REFERENCE_GEN_TIPO" Association="SisResModel.FK_GEN_CLIE_REFERENCE_GEN_TIPO">
+            <End Role="GEN_TipoCliente" EntitySet="GEN_TipoCliente" />
+            <End Role="GEN_Clientes" EntitySet="GEN_Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RES_RESE_REF_RESER_GEN_CLIE" Association="SisResModel.FK_RES_RESE_REF_RESER_GEN_CLIE">
+            <End Role="GEN_Clientes" EntitySet="GEN_Clientes" />
+            <End Role="RES_ReservaHabitacion" EntitySet="RES_ReservaHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GEN_USUA_REFERENCE_GEN_ROL" Association="SisResModel.FK_GEN_USUA_REFERENCE_GEN_ROL">
+            <End Role="GEN_Rol" EntitySet="GEN_Rol" />
+            <End Role="GEN_Usuarios" EntitySet="GEN_Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RES_RESE_REF_RESER_GEN_USUA" Association="SisResModel.FK_RES_RESE_REF_RESER_GEN_USUA">
+            <End Role="GEN_Usuarios" EntitySet="GEN_Usuarios" />
+            <End Role="RES_ReservaHabitacion" EntitySet="RES_ReservaHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HAB_HABI_REFERENCE_HAB_HABI" Association="SisResModel.FK_HAB_HABI_REFERENCE_HAB_HABI">
+            <End Role="HAB_Habitaciones" EntitySet="HAB_Habitaciones" />
+            <End Role="HAB_HabitacionImagenes" EntitySet="HAB_HabitacionImagenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HAB_HABI_REFERENCE_HAB_TIPO" Association="SisResModel.FK_HAB_HABI_REFERENCE_HAB_TIPO">
+            <End Role="HAB_TipoHabitacion" EntitySet="HAB_TipoHabitacion" />
+            <End Role="HAB_Habitaciones" EntitySet="HAB_Habitaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RES_RESE_REFERENCE_HAB_HABI" Association="SisResModel.FK_RES_RESE_REFERENCE_HAB_HABI">
+            <End Role="HAB_Habitaciones" EntitySet="HAB_Habitaciones" />
+            <End Role="RES_ReservaHabitacion" EntitySet="RES_ReservaHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RES_DETA_REFERENCE_SER_SERV" Association="SisResModel.FK_RES_DETA_REFERENCE_SER_SERV">
+            <End Role="SER_Servicios" EntitySet="SER_Servicios" />
+            <End Role="RES_DetalleReserva" EntitySet="RES_DetalleReserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RES_RESE_REFERENCE_RES_DETA" Association="SisResModel.FK_RES_RESE_REFERENCE_RES_DETA">
+            <End Role="RES_DetalleReserva" EntitySet="RES_DetalleReserva" />
+            <End Role="RES_ReservaHabitacion" EntitySet="RES_ReservaHabitacion" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="GEN_Clientes">
+          <Key>
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Type="Int32" Name="RUT" Nullable="false" />
+          <Property Type="String" Name="DV" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Nombres" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ApPaterno" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ApMaterno" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Direccion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Fono" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdTipoCliente" Nullable="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <NavigationProperty Name="GEN_TipoCliente" Relationship="SisResModel.FK_GEN_CLIE_REFERENCE_GEN_TIPO" FromRole="GEN_Clientes" ToRole="GEN_TipoCliente" />
+          <NavigationProperty Name="RES_ReservaHabitacion" Relationship="SisResModel.FK_RES_RESE_REF_RESER_GEN_CLIE" FromRole="GEN_Clientes" ToRole="RES_ReservaHabitacion" />
+        </EntityType>
+        <EntityType Name="GEN_Rol">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Type="Int32" Name="IdRol" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Rol" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="GEN_Usuarios" Relationship="SisResModel.FK_GEN_USUA_REFERENCE_GEN_ROL" FromRole="GEN_Rol" ToRole="GEN_Usuarios" />
+        </EntityType>
+        <EntityType Name="GEN_TipoCliente">
+          <Key>
+            <PropertyRef Name="IdTipoCliente" />
+          </Key>
+          <Property Type="Int32" Name="IdTipoCliente" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TipoCliente" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Descuento" Nullable="false" />
+          <NavigationProperty Name="GEN_Clientes" Relationship="SisResModel.FK_GEN_CLIE_REFERENCE_GEN_TIPO" FromRole="GEN_TipoCliente" ToRole="GEN_Clientes" />
+        </EntityType>
+        <EntityType Name="GEN_Usuarios">
+          <Key>
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Type="Int32" Name="RUT" Nullable="false" />
+          <Property Type="String" Name="DV" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Nombres" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ApPaterno" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ApMaterno" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Fono" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdRol" Nullable="false" />
+          <Property Type="String" Name="Clave" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <NavigationProperty Name="GEN_Rol" Relationship="SisResModel.FK_GEN_USUA_REFERENCE_GEN_ROL" FromRole="GEN_Usuarios" ToRole="GEN_Rol" />
+          <NavigationProperty Name="RES_ReservaHabitacion" Relationship="SisResModel.FK_RES_RESE_REF_RESER_GEN_USUA" FromRole="GEN_Usuarios" ToRole="RES_ReservaHabitacion" />
+        </EntityType>
+        <EntityType Name="HAB_Habitaciones">
+          <Key>
+            <PropertyRef Name="IdHabitacion" />
+          </Key>
+          <Property Type="Int32" Name="IdHabitacion" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdTipoHabitacion" Nullable="false" />
+          <Property Type="Int32" Name="Numero" Nullable="false" />
+          <Property Type="String" Name="Observaciones" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Disponible" Nullable="false" />
+          <Property Type="Boolean" Name="Reserva" Nullable="false" />
+          <NavigationProperty Name="HAB_HabitacionImagenes" Relationship="SisResModel.FK_HAB_HABI_REFERENCE_HAB_HABI" FromRole="HAB_Habitaciones" ToRole="HAB_HabitacionImagenes" />
+          <NavigationProperty Name="HAB_TipoHabitacion" Relationship="SisResModel.FK_HAB_HABI_REFERENCE_HAB_TIPO" FromRole="HAB_Habitaciones" ToRole="HAB_TipoHabitacion" />
+          <NavigationProperty Name="RES_ReservaHabitacion" Relationship="SisResModel.FK_RES_RESE_REFERENCE_HAB_HABI" FromRole="HAB_Habitaciones" ToRole="RES_ReservaHabitacion" />
+        </EntityType>
+        <EntityType Name="HAB_HabitacionImagenes">
+          <Key>
+            <PropertyRef Name="IdHabitacion" />
+            <PropertyRef Name="Imagen" />
+          </Key>
+          <Property Type="Int32" Name="IdHabitacion" Nullable="false" />
+          <Property Type="String" Name="Imagen" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HAB_Habitaciones" Relationship="SisResModel.FK_HAB_HABI_REFERENCE_HAB_HABI" FromRole="HAB_HabitacionImagenes" ToRole="HAB_Habitaciones" />
+        </EntityType>
+        <EntityType Name="HAB_TipoHabitacion">
+          <Key>
+            <PropertyRef Name="IdTipoHabitacion" />
+          </Key>
+          <Property Type="Int32" Name="IdTipoHabitacion" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TipoHabitacion" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Precio" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="HAB_Habitaciones" Relationship="SisResModel.FK_HAB_HABI_REFERENCE_HAB_TIPO" FromRole="HAB_TipoHabitacion" ToRole="HAB_Habitaciones" />
+        </EntityType>
+        <EntityType Name="RES_DetalleReserva">
+          <Key>
+            <PropertyRef Name="IdDetalleReserva" />
+          </Key>
+          <Property Type="Int32" Name="IdDetalleReserva" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdServicio" />
+          <Property Type="Decimal" Name="Precio" Precision="19" Scale="4" />
+          <NavigationProperty Name="SER_Servicios" Relationship="SisResModel.FK_RES_DETA_REFERENCE_SER_SERV" FromRole="RES_DetalleReserva" ToRole="SER_Servicios" />
+          <NavigationProperty Name="RES_ReservaHabitacion" Relationship="SisResModel.FK_RES_RESE_REFERENCE_RES_DETA" FromRole="RES_DetalleReserva" ToRole="RES_ReservaHabitacion" />
+        </EntityType>
+        <EntityType Name="RES_ReservaHabitacion">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Type="Int32" Name="IdReserva" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RUTUsuario" Nullable="false" />
+          <Property Type="Int32" Name="RUTCliente" Nullable="false" />
+          <Property Type="Int32" Name="IdHabitacion" Nullable="false" />
+          <Property Type="Int32" Name="IdDetalleReserva" Nullable="false" />
+          <Property Type="DateTime" Name="HoraFechaRes" Nullable="false" />
+          <Property Type="Int32" Name="DiasReserva" Nullable="false" />
+          <Property Type="Int32" Name="Descuento" Nullable="false" />
+          <NavigationProperty Name="GEN_Clientes" Relationship="SisResModel.FK_RES_RESE_REF_RESER_GEN_CLIE" FromRole="RES_ReservaHabitacion" ToRole="GEN_Clientes" />
+          <NavigationProperty Name="GEN_Usuarios" Relationship="SisResModel.FK_RES_RESE_REF_RESER_GEN_USUA" FromRole="RES_ReservaHabitacion" ToRole="GEN_Usuarios" />
+          <NavigationProperty Name="HAB_Habitaciones" Relationship="SisResModel.FK_RES_RESE_REFERENCE_HAB_HABI" FromRole="RES_ReservaHabitacion" ToRole="HAB_Habitaciones" />
+          <NavigationProperty Name="RES_DetalleReserva" Relationship="SisResModel.FK_RES_RESE_REFERENCE_RES_DETA" FromRole="RES_ReservaHabitacion" ToRole="RES_DetalleReserva" />
+        </EntityType>
+        <EntityType Name="SER_Servicios">
+          <Key>
+            <PropertyRef Name="IdServicio" />
+          </Key>
+          <Property Type="Int32" Name="IdServicio" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Servicio" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Precio" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="RES_DetalleReserva" Relationship="SisResModel.FK_RES_DETA_REFERENCE_SER_SERV" FromRole="SER_Servicios" ToRole="RES_DetalleReserva" />
+        </EntityType>
+        <Association Name="FK_GEN_CLIE_REFERENCE_GEN_TIPO">
+          <End Type="SisResModel.GEN_TipoCliente" Role="GEN_TipoCliente" Multiplicity="1" />
+          <End Type="SisResModel.GEN_Clientes" Role="GEN_Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GEN_TipoCliente">
+              <PropertyRef Name="IdTipoCliente" />
+            </Principal>
+            <Dependent Role="GEN_Clientes">
+              <PropertyRef Name="IdTipoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RES_RESE_REF_RESER_GEN_CLIE">
+          <End Type="SisResModel.GEN_Clientes" Role="GEN_Clientes" Multiplicity="1" />
+          <End Type="SisResModel.RES_ReservaHabitacion" Role="RES_ReservaHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GEN_Clientes">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="RES_ReservaHabitacion">
+              <PropertyRef Name="RUTCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GEN_USUA_REFERENCE_GEN_ROL">
+          <End Type="SisResModel.GEN_Rol" Role="GEN_Rol" Multiplicity="1" />
+          <End Type="SisResModel.GEN_Usuarios" Role="GEN_Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GEN_Rol">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="GEN_Usuarios">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RES_RESE_REF_RESER_GEN_USUA">
+          <End Type="SisResModel.GEN_Usuarios" Role="GEN_Usuarios" Multiplicity="1" />
+          <End Type="SisResModel.RES_ReservaHabitacion" Role="RES_ReservaHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GEN_Usuarios">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="RES_ReservaHabitacion">
+              <PropertyRef Name="RUTUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HAB_HABI_REFERENCE_HAB_HABI">
+          <End Type="SisResModel.HAB_Habitaciones" Role="HAB_Habitaciones" Multiplicity="1" />
+          <End Type="SisResModel.HAB_HabitacionImagenes" Role="HAB_HabitacionImagenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HAB_Habitaciones">
+              <PropertyRef Name="IdHabitacion" />
+            </Principal>
+            <Dependent Role="HAB_HabitacionImagenes">
+              <PropertyRef Name="IdHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HAB_HABI_REFERENCE_HAB_TIPO">
+          <End Type="SisResModel.HAB_TipoHabitacion" Role="HAB_TipoHabitacion" Multiplicity="1" />
+          <End Type="SisResModel.HAB_Habitaciones" Role="HAB_Habitaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HAB_TipoHabitacion">
+              <PropertyRef Name="IdTipoHabitacion" />
+            </Principal>
+            <Dependent Role="HAB_Habitaciones">
+              <PropertyRef Name="IdTipoHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RES_RESE_REFERENCE_HAB_HABI">
+          <End Type="SisResModel.HAB_Habitaciones" Role="HAB_Habitaciones" Multiplicity="1" />
+          <End Type="SisResModel.RES_ReservaHabitacion" Role="RES_ReservaHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HAB_Habitaciones">
+              <PropertyRef Name="IdHabitacion" />
+            </Principal>
+            <Dependent Role="RES_ReservaHabitacion">
+              <PropertyRef Name="IdHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RES_DETA_REFERENCE_SER_SERV">
+          <End Type="SisResModel.SER_Servicios" Role="SER_Servicios" Multiplicity="0..1" />
+          <End Type="SisResModel.RES_DetalleReserva" Role="RES_DetalleReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SER_Servicios">
+              <PropertyRef Name="IdServicio" />
+            </Principal>
+            <Dependent Role="RES_DetalleReserva">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RES_RESE_REFERENCE_RES_DETA">
+          <End Type="SisResModel.RES_DetalleReserva" Role="RES_DetalleReserva" Multiplicity="1" />
+          <End Type="SisResModel.RES_ReservaHabitacion" Role="RES_ReservaHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RES_DetalleReserva">
+              <PropertyRef Name="IdDetalleReserva" />
+            </Principal>
+            <Dependent Role="RES_ReservaHabitacion">
+              <PropertyRef Name="IdDetalleReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SisResModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="GEN_Clientes">
+            <EntityTypeMapping TypeName="SisResModel.GEN_Clientes">
+              <MappingFragment StoreEntitySet="GEN_Clientes">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdTipoCliente" ColumnName="IdTipoCliente" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fono" ColumnName="Fono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="ApMaterno" ColumnName="ApMaterno" />
+                <ScalarProperty Name="ApPaterno" ColumnName="ApPaterno" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="DV" ColumnName="DV" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GEN_Rol">
+            <EntityTypeMapping TypeName="SisResModel.GEN_Rol">
+              <MappingFragment StoreEntitySet="GEN_Rol">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GEN_TipoCliente">
+            <EntityTypeMapping TypeName="SisResModel.GEN_TipoCliente">
+              <MappingFragment StoreEntitySet="GEN_TipoCliente">
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="TipoCliente" ColumnName="TipoCliente" />
+                <ScalarProperty Name="IdTipoCliente" ColumnName="IdTipoCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GEN_Usuarios">
+            <EntityTypeMapping TypeName="SisResModel.GEN_Usuarios">
+              <MappingFragment StoreEntitySet="GEN_Usuarios">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fono" ColumnName="Fono" />
+                <ScalarProperty Name="ApMaterno" ColumnName="ApMaterno" />
+                <ScalarProperty Name="ApPaterno" ColumnName="ApPaterno" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="DV" ColumnName="DV" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HAB_Habitaciones">
+            <EntityTypeMapping TypeName="SisResModel.HAB_Habitaciones">
+              <MappingFragment StoreEntitySet="HAB_Habitaciones">
+                <ScalarProperty Name="Reserva" ColumnName="Reserva" />
+                <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="IdTipoHabitacion" ColumnName="IdTipoHabitacion" />
+                <ScalarProperty Name="IdHabitacion" ColumnName="IdHabitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HAB_HabitacionImagenes">
+            <EntityTypeMapping TypeName="SisResModel.HAB_HabitacionImagenes">
+              <MappingFragment StoreEntitySet="HAB_HabitacionImagenes">
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="IdHabitacion" ColumnName="IdHabitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HAB_TipoHabitacion">
+            <EntityTypeMapping TypeName="SisResModel.HAB_TipoHabitacion">
+              <MappingFragment StoreEntitySet="HAB_TipoHabitacion">
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="TipoHabitacion" ColumnName="TipoHabitacion" />
+                <ScalarProperty Name="IdTipoHabitacion" ColumnName="IdTipoHabitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RES_DetalleReserva">
+            <EntityTypeMapping TypeName="SisResModel.RES_DetalleReserva">
+              <MappingFragment StoreEntitySet="RES_DetalleReserva">
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+                <ScalarProperty Name="IdDetalleReserva" ColumnName="IdDetalleReserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RES_ReservaHabitacion">
+            <EntityTypeMapping TypeName="SisResModel.RES_ReservaHabitacion">
+              <MappingFragment StoreEntitySet="RES_ReservaHabitacion">
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="DiasReserva" ColumnName="DiasReserva" />
+                <ScalarProperty Name="HoraFechaRes" ColumnName="HoraFechaRes" />
+                <ScalarProperty Name="IdDetalleReserva" ColumnName="IdDetalleReserva" />
+                <ScalarProperty Name="IdHabitacion" ColumnName="IdHabitacion" />
+                <ScalarProperty Name="RUTCliente" ColumnName="RUTCliente" />
+                <ScalarProperty Name="RUTUsuario" ColumnName="RUTUsuario" />
+                <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SER_Servicios">
+            <EntityTypeMapping TypeName="SisResModel.SER_Servicios">
+              <MappingFragment StoreEntitySet="SER_Servicios">
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="SisRes" ZoomLevel="74">
+        <EntityTypeShape EntityType="SisResModel.GEN_Clientes" Width="1.5" PointX="3" PointY="1" Height="3.3263964843750036" />
+        <EntityTypeShape EntityType="SisResModel.GEN_Rol" Width="1.5" PointX="0.75" PointY="4.75" Height="1.7879850260416745" />
+        <EntityTypeShape EntityType="SisResModel.GEN_TipoCliente" Width="1.5" PointX="0.75" PointY="1.125" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SisResModel.GEN_Usuarios" Width="1.5" PointX="3" PointY="4.75" Height="3.326396484374996" />
+        <EntityTypeShape EntityType="SisResModel.HAB_Habitaciones" Width="1.5" PointX="8" PointY="3.625" Height="2.7494921875000031" />
+        <EntityTypeShape EntityType="SisResModel.HAB_HabitacionImagenes" Width="1.5" PointX="10.25" PointY="3.5" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="SisResModel.HAB_TipoHabitacion" Width="1.5" PointX="10.25" PointY="5.875" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SisResModel.RES_DetalleReserva" Width="1.5" PointX="8" PointY="1" Height="1.9802864583333406" />
+        <EntityTypeShape EntityType="SisResModel.RES_ReservaHabitacion" Width="1.5" PointX="5.25" PointY="1" Height="3.3263964843750031" />
+        <EntityTypeShape EntityType="SisResModel.SER_Servicios" Width="1.5" PointX="10.25" PointY="1" Height="1.9802864583333406" />
+        <AssociationConnector Association="SisResModel.FK_GEN_CLIE_REFERENCE_GEN_TIPO" >
+          <ConnectorPoint PointX="2.25" PointY="2.1151432291666694" />
+          <ConnectorPoint PointX="3" PointY="2.1151432291666694" />
+        </AssociationConnector>
+        <AssociationConnector Association="SisResModel.FK_RES_RESE_REF_RESER_GEN_CLIE" >
+          <ConnectorPoint PointX="4.5" PointY="2.6631982421875016" />
+          <ConnectorPoint PointX="5.25" PointY="2.6631982421875016" />
+        </AssociationConnector>
+        <AssociationConnector Association="SisResModel.FK_GEN_USUA_REFERENCE_GEN_ROL" >
+          <ConnectorPoint PointX="2.25" PointY="5.6439925130208373" />
+          <ConnectorPoint PointX="3" PointY="5.6439925130208373" />
+        </AssociationConnector>
+        <AssociationConnector Association="SisResModel.FK_RES_RESE_REF_RESER_GEN_USUA" >
+          <ConnectorPoint PointX="4.5" PointY="6.413198242187498" />
+          <ConnectorPoint PointX="6" PointY="6.413198242187498" />
+          <ConnectorPoint PointX="6" PointY="4.3263964843750031" />
+        </AssociationConnector>
+        <AssociationConnector Association="SisResModel.FK_HAB_HABI_REFERENCE_HAB_HABI" >
+          <ConnectorPoint PointX="9.5" PointY="4.3603417968750016" />
+          <ConnectorPoint PointX="10.25" PointY="4.3603417968750016" />
+        </AssociationConnector>
+        <AssociationConnector Association="SisResModel.FK_HAB_HABI_REFERENCE_HAB_TIPO" >
+          <ConnectorPoint PointX="10.25" PointY="6.1247460937500016" />
+          <ConnectorPoint PointX="9.5" PointY="6.1247460937500016" />
+        </AssociationConnector>
+        <AssociationConnector Association="SisResModel.FK_RES_RESE_REFERENCE_HAB_HABI" >
+          <ConnectorPoint PointX="8" PointY="3.9756982421875016" />
+          <ConnectorPoint PointX="6.75" PointY="3.9756982421875016" />
+        </AssociationConnector>
+        <AssociationConnector Association="SisResModel.FK_RES_DETA_REFERENCE_SER_SERV" >
+          <ConnectorPoint PointX="10.25" PointY="1.9901432291666703" />
+          <ConnectorPoint PointX="9.5" PointY="1.9901432291666703" />
+        </AssociationConnector>
+        <AssociationConnector Association="SisResModel.FK_RES_RESE_REFERENCE_RES_DETA" >
+          <ConnectorPoint PointX="8" PointY="1.9901432291666703" />
+          <ConnectorPoint PointX="6.75" PointY="1.9901432291666703" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

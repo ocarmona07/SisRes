@@ -76,6 +76,15 @@ namespace SisRes.Vista {
         protected global::System.Web.UI.WebControls.TextBox tbApMaterno;
         
         /// <summary>
+        /// Control tbFono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbFono;
+        
+        /// <summary>
         /// Control tbDireccion.
         /// </summary>
         /// <remarks>
@@ -85,12 +94,30 @@ namespace SisRes.Vista {
         protected global::System.Web.UI.WebControls.TextBox tbDireccion;
         
         /// <summary>
-        /// Control tbFono.
+        /// Control tbEmail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbFono;
+        protected global::System.Web.UI.WebControls.TextBox tbEmail;
+        
+        /// <summary>
+        /// Control ddlTipoCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoCliente;
+        
+        /// <summary>
+        /// Control chkEstado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkEstado;
     }
 }

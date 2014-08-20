@@ -5,7 +5,11 @@
     using System.Linq;
     using System.Text;
 
+    /// <summary>
+    /// Clase entidad para uso general
+    /// </summary>
     public class GeneralEnt
     {
+
     }
 }

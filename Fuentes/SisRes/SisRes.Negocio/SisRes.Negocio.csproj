@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SisRes.Negocio</RootNamespace>
     <AssemblyName>SisRes.Negocio</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,10 +47,6 @@
     <ProjectReference Include="..\SisRes.Datos\SisRes.Datos.csproj">
       <Project>{D8C8F768-D0BC-4199-862B-341E1C3258C2}</Project>
       <Name>SisRes.Datos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SisRes.Entidades\SisRes.Entidades.csproj">
-      <Project>{80FF6EEA-5F0A-489F-87A2-CFA8B9EB6769}</Project>
-      <Name>SisRes.Entidades</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

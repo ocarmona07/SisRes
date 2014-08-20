@@ -62,9 +62,9 @@ CREATE TABLE GEN_TipoCliente
 go
 
 /*==============================================================*/
-/* Table: GEN_USUARIOS                                          */
+/* Table: GEN_Usuarios                                          */
 /*==============================================================*/
-CREATE TABLE GEN_USUARIOS
+CREATE TABLE GEN_Usuarios
     (
       RUT INT NOT NULL ,
       DV CHAR(1) NOT NULL ,
@@ -136,9 +136,10 @@ go
 CREATE TABLE RES_ReservaHabitacion
     (
       IdReserva INT IDENTITY ,
-      RUTCliente INT NULL ,
-      IdHabitacion INT NULL ,
-      IdDetalleReserva INT NULL ,
+      RUTUsuario INT NOT NULL ,
+      RUTCliente INT NOT NULL ,
+      IdHabitacion INT NOT NULL ,
+      IdDetalleReserva INT NOT NULL ,
       HoraFechaRes DATETIME NOT NULL ,
       DiasReserva INT NOT NULL ,
       Descuento INT NOT NULL ,
@@ -197,4 +198,9 @@ go
 ALTER TABLE RES_ReservaHabitacion
 ADD CONSTRAINT FK_RES_RESE_REF_RESER_GEN_CLIE FOREIGN KEY (RUTCliente)
 REFERENCES GEN_Clientes (RUT)
+go
+
+ALTER TABLE RES_ReservaHabitacion
+ADD CONSTRAINT FK_RES_RESE_REF_RESER_GEN_USUA FOREIGN KEY (RUTUsuario)
+REFERENCES GEN_Usuarios (RUT)
 go
