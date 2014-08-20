@@ -338,10 +338,10 @@ figure
 footer
 {
     padding-top: 10px;
-	width: 100%;
-	height: 30px;
-	position: absolute;
-	bottom: 0;
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
     margin-top: -30px;
 }
 #icons
@@ -391,100 +391,13 @@ footer
     padding: 0;
 }
 /* ============================= forms ============================= */
-#ContactForm
+#frmReserva
 {
-    padding: 0 10px 0 0;
-    margin-top: -2px;
+    
 }
-#ContactForm .wrapper
+#frmReserva input
 {
-    overflow: inherit;
-    min-height: 30px;
-    line-height: 24px;
-}
-#ContactForm .textarea_box
-{
-    min-height: 216px;
-}
-#ContactForm a
-{
-    margin-left: 10px;
-    float: right;
-    padding: 0 20px;
-}
-#ContactForm .input
-{
-    margin: 0;
-    float: right;
-    width: 482px;
-    height: 16px;
-    background: #fff;
-    border: 1px solid #f2f2f2;
-    padding: 3px 5px;
-    color: #72716f;
-    font: 12px Arial, Helvetica, sans-serif;
-}
-#ContactForm textarea
-{
-    overflow: auto;
-    margin: 0;
-    float: right;
-    width: 482px;
-    height: 198px;
-    background: #fff;
-    border: 1px solid #f2f2f2;
-    padding: 3px 5px;
-    color: #72716f;
-    font: 12px Arial, Helvetica, sans-serif;
-}
-#form1
-{
-    width: 700px;
-    float: right;
-    padding: 30px;
-    background: #12110f;
-    text-align: center;
-}
-#form1 h2
-{
-    padding: 0 0 22px 0;
-    margin-top: -4px;
-    color: #fff;
-}
-#form1 .right
-{
-    width: 140px;
-}
-#form1 .row
-{
-    height: 30px;
-    line-height: 22px;
-}
-#form1 .row_textarea
-{
-    height: 102px;
-    line-height: 22px;
-}
-#form1 .input
-{
-    font: 12px Arial, Helvetica, sans-serif;
-    color: #72716f;
-    background: none;
-    height: 15px;
-    padding: 3px 5px;
-    width: 128px;
-    margin: 0;
-}
-#form1 textarea
-{
-    font: 12px Arial, Helvetica, sans-serif;
-    color: #72716f;
-    background: none;
-    height: 54px;
-    padding: 3px 5px;
-    width: 222px;
-    margin: 0;
-    overflow: auto;
+    border: 1px solid black;
 }
 /* -------------
  * Hidden - used to hide the original form elements
@@ -608,4 +521,18 @@ a.jqTransformSelectOpen
     float: right;
     margin-left: 4px;
     padding: 0 19px;
+}
+
+fieldset
+{
+    border: 1px solid green;
+}
+
+legend
+{
+    padding: 0.2em 0.5em;
+    border: 1px solid green;
+    color: green;
+    text-align: left;
+    margin-left: 10px;
 }
