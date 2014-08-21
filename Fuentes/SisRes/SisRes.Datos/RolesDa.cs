@@ -7,9 +7,9 @@
     using Entidades;
 
     /// <summary>
-    /// Clase de datos para tipos de clientes
+    /// Clase de datos para roles
     /// </summary>
-    public class TipoClienteDa
+    public class RolesDa
     {
         /// <summary>
         /// Entidades de SisRes
@@ -19,23 +19,23 @@
         /// <summary>
         /// Método que inicializa las entidades
         /// </summary>
-        public TipoClienteDa()
+        public RolesDa()
         {
             if (_sisResEntities == null)
                 _sisResEntities = new SisResEntities();
         }
 
         /// <summary>
-        /// Método que almacena un tipo de cliente
+        /// Método que almacena un rol
         /// </summary>
-        /// <param name="tipoCliente">Datos del tipo de cliente</param>
+        /// <param name="role">Datos del role</param>
         /// <returns>Id de ingreso</returns>
-        public int CrearTipoCliente(GEN_TipoCliente tipoCliente)
+        public int CrearRol(GEN_Rol role)
         {
             var idRetorno = 0;
             try
             {
-                _sisResEntities.GEN_TipoCliente.AddObject(tipoCliente);
+                _sisResEntities.GEN_Rol.AddObject(role);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();
                 return idRetorno;
@@ -47,16 +47,16 @@
         }
 
         /// <summary>
-        /// Método que obtiene un tipo de cliente
+        /// Método que obtiene un rol
         /// </summary>
-        /// <param name="idTipoCliente">Id del tipo de cliente</param>
-        /// <returns>Tipo de Cliente</returns>
-        public GEN_TipoCliente ObtenerTipoCliente(int idTipoCliente)
+        /// <param name="idRol">Id del role</param>
+        /// <returns>Role</returns>
+        public GEN_Rol ObtenerRol(int idRol)
         {
-            var retorno = new GEN_TipoCliente();
+            var retorno = new GEN_Rol();
             try
             {
-                retorno = _sisResEntities.GEN_TipoCliente.Single(tc => tc.IdTipoCliente == idTipoCliente);
+                retorno = _sisResEntities.GEN_Rol.Single(tc => tc.IdRol == idRol);
                 _sisResEntities.Dispose();
                 return retorno;
             }
@@ -67,15 +67,15 @@
         }
 
         /// <summary>
-        /// Método que obtiene todos los tipos de clientes
+        /// Método que obtiene todos los roles
         /// </summary>
-        /// <returns>Lista de tipos de clientes</returns>
-        public List<GEN_TipoCliente> ObtenerTiposClientes()
+        /// <returns>Lista de roles</returns>
+        public List<GEN_Rol> ObtenerRoles()
         {
-            var listaRetorno = new List<GEN_TipoCliente>();
+            var listaRetorno = new List<GEN_Rol>();
             try
             {
-                listaRetorno = _sisResEntities.GEN_TipoCliente.ToList();
+                listaRetorno = _sisResEntities.GEN_Rol.ToList();
                 _sisResEntities.Dispose();
                 return listaRetorno;
             }
@@ -86,17 +86,17 @@
         }
 
         /// <summary>
-        /// Método que actualiza un tipo de cliente
+        /// Método que actualiza un rol
         /// </summary>
-        /// <param name="tipoCliente">Datos del tipo de cliente</param>
+        /// <param name="rol">Datos del rol</param>
         /// <returns>Id de actualización</returns>
-        public int ActualizarTipoCliente(GEN_TipoCliente tipoCliente)
+        public int ActualizarRol(GEN_Rol rol)
         {
             var idRetorno = 0;
             try
             {
-                _sisResEntities.GEN_TipoCliente.Attach(tipoCliente);
-                _sisResEntities.ObjectStateManager.ChangeObjectState(tipoCliente, EntityState.Modified);
+                _sisResEntities.GEN_Rol.Attach(rol);
+                _sisResEntities.ObjectStateManager.ChangeObjectState(rol, EntityState.Modified);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();
                 return idRetorno;
@@ -108,17 +108,17 @@
         }
 
         /// <summary>
-        /// Método que elimina un tipo de cliente
+        /// Método que elimina un rol
         /// </summary>
-        /// <param name="idTipoCliente">Id del tipo de cliente</param>
+        /// <param name="idRole">RUT del rol</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarTipoCliente(int idTipoCliente)
+        public int EliminarRol(int idRole)
         {
             var idRetorno = 0;
             try
             {
                 object objetoEliminar;
-                _sisResEntities.TryGetObjectByKey(new EntityKey("SisResEntities.GEN_TipoCliente", "IdTipoCliente", idTipoCliente), out objetoEliminar);
+                _sisResEntities.TryGetObjectByKey(new EntityKey("SisResEntities.GEN_Roles", "RUT", idRole), out objetoEliminar);
                 _sisResEntities.DeleteObject(objetoEliminar);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();
