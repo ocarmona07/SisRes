@@ -69,7 +69,7 @@
         /// <summary>
         /// Método que obtiene todos los tipos de clientes
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Lista de tipos de clientes</returns>
         public List<GEN_TipoCliente> ObtenerTiposClientes()
         {
             var listaRetorno = new List<GEN_TipoCliente>();
@@ -85,12 +85,44 @@
             }
         }
 
-        public int ActualizaTipoCliente(GEN_TipoCliente tipoCliente)
+        /// <summary>
+        /// Método que actualiza un tipo de cliente
+        /// </summary>
+        /// <param name="tipoCliente">Datos del tipo de cliente</param>
+        /// <returns>Id de actualización</returns>
+        public int ActualizarTipoCliente(GEN_TipoCliente tipoCliente)
         {
             var idRetorno = 0;
             try
             {
-                _sisResEntities.GEN_TipoCliente.at(tipoCliente);
+                _sisResEntities.GEN_TipoCliente.Attach(tipoCliente);
+                _sisResEntities.ObjectStateManager.ChangeObjectState(tipoCliente, EntityState.Modified);
+                idRetorno = _sisResEntities.SaveChanges();
+                _sisResEntities.Dispose();
+                return idRetorno;
+            }
+            catch (Exception)
+            {
+                return idRetorno;
+            }
+        }
+
+        /// <summary>
+        /// Método que elimina un tipo de cliente
+        /// </summary>
+        /// <param name="idTipoCliente">Id del tipo de cliente</param>
+        /// <returns>Id de confirmación</returns>
+        public int EliminarTipoCliente(int idTipoCliente)
+        {
+            var idRetorno = 0;
+            try
+            {
+                object objetoEliminar;
+                _sisResEntities.TryGetObjectByKey(new EntityKey("SisResEntities.GEN_TipoCliente", "IdTipoCliente", idTipoCliente), out objetoEliminar);
+                _sisResEntities.DeleteObject(objetoEliminar);
+                idRetorno = _sisResEntities.SaveChanges();
+                _sisResEntities.Dispose();
+                return idRetorno;
             }
             catch (Exception)
             {
