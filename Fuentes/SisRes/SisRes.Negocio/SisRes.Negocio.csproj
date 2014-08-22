@@ -34,12 +34,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Data.Entity" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientesBo.cs" />
     <Compile Include="GeneralBo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -47,6 +45,10 @@
     <ProjectReference Include="..\SisRes.Datos\SisRes.Datos.csproj">
       <Project>{D8C8F768-D0BC-4199-862B-341E1C3258C2}</Project>
       <Name>SisRes.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SisRes.Entidades\SisRes.Entidades.csproj">
+      <Project>{80FF6EEA-5F0A-489F-87A2-CFA8B9EB6769}</Project>
+      <Name>SisRes.Entidades</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
