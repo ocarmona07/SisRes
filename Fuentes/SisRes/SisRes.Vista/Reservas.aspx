@@ -86,6 +86,10 @@
         </asp:Table>
         <br/>
     </asp:Panel>
-
+    <asp:Panel runat="server" GroupingText="Habitación">
+        <asp:Table runat="server">
+            
+        </asp:Table>
+    </asp:Panel>
     </form>
 </asp:Content>
