@@ -7,9 +7,9 @@
     using Entidades;
 
     /// <summary>
-    /// Clase de datos para roles
+    /// Clase de datos para servicios
     /// </summary>
-    public class RolesDa
+    public class ServiciosDa
     {
         /// <summary>
         /// Entidades de SisRes
@@ -19,23 +19,23 @@
         /// <summary>
         /// Método que inicializa las entidades
         /// </summary>
-        public RolesDa()
+        public ServiciosDa()
         {
             if (_sisResEntities == null)
                 _sisResEntities = new SisResEntities();
         }
 
         /// <summary>
-        /// Método que almacena un rol
+        /// Método que almacena un servicio
         /// </summary>
-        /// <param name="rol">Datos del role</param>
+        /// <param name="servicio">Datos del servicio</param>
         /// <returns>Id de ingreso</returns>
-        public int CrearRol(GEN_Rol rol)
+        public int CrearServicio(SER_Servicios servicio)
         {
             var idRetorno = 0;
             try
             {
-                _sisResEntities.GEN_Rol.AddObject(rol);
+                _sisResEntities.SER_Servicios.AddObject(servicio);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();
                 return idRetorno;
@@ -47,16 +47,16 @@
         }
 
         /// <summary>
-        /// Método que obtiene un rol
+        /// Método que obtiene un servicio
         /// </summary>
-        /// <param name="idRol">Id del role</param>
-        /// <returns>Role</returns>
-        public GEN_Rol ObtenerRol(int idRol)
+        /// <param name="idServicio">Id del servicio</param>
+        /// <returns>Servicio</returns>
+        public SER_Servicios ObtenerServicio(int idServicio)
         {
-            var retorno = new GEN_Rol();
+            var retorno = new SER_Servicios();
             try
             {
-                retorno = _sisResEntities.GEN_Rol.Single(tc => tc.IdRol == idRol);
+                retorno = _sisResEntities.SER_Servicios.Single(tc => tc.IdServicio == idServicio);
                 _sisResEntities.Dispose();
                 return retorno;
             }
@@ -67,15 +67,15 @@
         }
 
         /// <summary>
-        /// Método que obtiene todos los roles
+        /// Método que obtiene todos los servicios
         /// </summary>
-        /// <returns>Lista de roles</returns>
-        public List<GEN_Rol> ObtenerRoles()
+        /// <returns>Lista de servicios</returns>
+        public List<SER_Servicios> ObtenerServicios()
         {
-            var listaRetorno = new List<GEN_Rol>();
+            var listaRetorno = new List<SER_Servicios>();
             try
             {
-                listaRetorno = _sisResEntities.GEN_Rol.ToList();
+                listaRetorno = _sisResEntities.SER_Servicios.ToList();
                 _sisResEntities.Dispose();
                 return listaRetorno;
             }
@@ -86,17 +86,17 @@
         }
 
         /// <summary>
-        /// Método que actualiza un rol
+        /// Método que actualiza un servicio
         /// </summary>
-        /// <param name="rol">Datos del rol</param>
+        /// <param name="servicio">Datos del servicio</param>
         /// <returns>Id de actualización</returns>
-        public int ActualizarRol(GEN_Rol rol)
+        public int ActualizarServicio(SER_Servicios servicio)
         {
             var idRetorno = 0;
             try
             {
-                _sisResEntities.GEN_Rol.Attach(rol);
-                _sisResEntities.ObjectStateManager.ChangeObjectState(rol, EntityState.Modified);
+                _sisResEntities.SER_Servicios.Attach(servicio);
+                _sisResEntities.ObjectStateManager.ChangeObjectState(servicio, EntityState.Modified);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();
                 return idRetorno;
@@ -108,17 +108,17 @@
         }
 
         /// <summary>
-        /// Método que elimina un rol
+        /// Método que elimina un servicio
         /// </summary>
-        /// <param name="idRol">Id del rol</param>
+        /// <param name="idServicio">Id del servicio</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarRol(int idRol)
+        public int EliminarServicio(int idServicio)
         {
             var idRetorno = 0;
             try
             {
                 object objetoEliminar;
-                _sisResEntities.TryGetObjectByKey(new EntityKey("SisResEntities.GEN_Roles", "IdRol", idRol), out objetoEliminar);
+                _sisResEntities.TryGetObjectByKey(new EntityKey("SisResEntities.SER_Servicios", "IdServicio", idServicio), out objetoEliminar);
                 _sisResEntities.DeleteObject(objetoEliminar);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();

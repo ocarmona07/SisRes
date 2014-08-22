@@ -7,9 +7,9 @@
     using Entidades;
 
     /// <summary>
-    /// Clase de datos para roles
+    /// Clase de datos para imágenes de la habitación
     /// </summary>
-    public class RolesDa
+    public class HabitacionImagenesDa
     {
         /// <summary>
         /// Entidades de SisRes
@@ -19,23 +19,23 @@
         /// <summary>
         /// Método que inicializa las entidades
         /// </summary>
-        public RolesDa()
+        public HabitacionImagenesDa()
         {
             if (_sisResEntities == null)
                 _sisResEntities = new SisResEntities();
         }
 
         /// <summary>
-        /// Método que almacena un rol
+        /// Método que almacena una imagen de la habitación
         /// </summary>
-        /// <param name="rol">Datos del role</param>
+        /// <param name="imagen">Datos de la imagen</param>
         /// <returns>Id de ingreso</returns>
-        public int CrearRol(GEN_Rol rol)
+        public int CrearImagenHabitacion(HAB_HabitacionImagenes imagen)
         {
             var idRetorno = 0;
             try
             {
-                _sisResEntities.GEN_Rol.AddObject(rol);
+                _sisResEntities.HAB_HabitacionImagenes.AddObject(imagen);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();
                 return idRetorno;
@@ -47,16 +47,16 @@
         }
 
         /// <summary>
-        /// Método que obtiene un rol
+        /// Método que obtiene una imagen de la habitación
         /// </summary>
-        /// <param name="idRol">Id del role</param>
-        /// <returns>Role</returns>
-        public GEN_Rol ObtenerRol(int idRol)
+        /// <param name="idHabitacion">Id de la habitación</param>
+        /// <returns>Imagen de la Habitación</returns>
+        public HAB_HabitacionImagenes ObtenerImagenHabitacion(int idHabitacion)
         {
-            var retorno = new GEN_Rol();
+            var retorno = new HAB_HabitacionImagenes();
             try
             {
-                retorno = _sisResEntities.GEN_Rol.Single(tc => tc.IdRol == idRol);
+                retorno = _sisResEntities.HAB_HabitacionImagenes.Single(tc => tc.IdHabitacion == idHabitacion);
                 _sisResEntities.Dispose();
                 return retorno;
             }
@@ -67,15 +67,15 @@
         }
 
         /// <summary>
-        /// Método que obtiene todos los roles
+        /// Método que obtiene todas las imágenes de una habitación
         /// </summary>
-        /// <returns>Lista de roles</returns>
-        public List<GEN_Rol> ObtenerRoles()
+        /// <returns>Lista de imágenes</returns>
+        public List<HAB_HabitacionImagenes> ObtenerHabitacionImagenes()
         {
-            var listaRetorno = new List<GEN_Rol>();
+            var listaRetorno = new List<HAB_HabitacionImagenes>();
             try
             {
-                listaRetorno = _sisResEntities.GEN_Rol.ToList();
+                listaRetorno = _sisResEntities.HAB_HabitacionImagenes.ToList();
                 _sisResEntities.Dispose();
                 return listaRetorno;
             }
@@ -86,17 +86,17 @@
         }
 
         /// <summary>
-        /// Método que actualiza un rol
+        /// Método que actualiza una imagen de la habitación
         /// </summary>
-        /// <param name="rol">Datos del rol</param>
+        /// <param name="idImagen">Datos de la imagen</param>
         /// <returns>Id de actualización</returns>
-        public int ActualizarRol(GEN_Rol rol)
+        public int ActualizarImagenHabitacion(HAB_HabitacionImagenes idImagen)
         {
             var idRetorno = 0;
             try
             {
-                _sisResEntities.GEN_Rol.Attach(rol);
-                _sisResEntities.ObjectStateManager.ChangeObjectState(rol, EntityState.Modified);
+                _sisResEntities.HAB_HabitacionImagenes.Attach(idImagen);
+                _sisResEntities.ObjectStateManager.ChangeObjectState(idImagen, EntityState.Modified);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();
                 return idRetorno;
@@ -108,17 +108,17 @@
         }
 
         /// <summary>
-        /// Método que elimina un rol
+        /// Método que elimina una imagen de la habitación
         /// </summary>
-        /// <param name="idRol">Id del rol</param>
+        /// <param name="idHabitacion">Id de la habitación</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarRol(int idRol)
+        public int EliminarImagenHabitacion(int idHabitacion)
         {
             var idRetorno = 0;
             try
             {
                 object objetoEliminar;
-                _sisResEntities.TryGetObjectByKey(new EntityKey("SisResEntities.GEN_Roles", "IdRol", idRol), out objetoEliminar);
+                _sisResEntities.TryGetObjectByKey(new EntityKey("SisResEntities.HAB_HabitacionImagenes", "IdHabitacion", idHabitacion), out objetoEliminar);
                 _sisResEntities.DeleteObject(objetoEliminar);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();

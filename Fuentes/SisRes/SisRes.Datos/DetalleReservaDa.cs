@@ -7,9 +7,9 @@
     using Entidades;
 
     /// <summary>
-    /// Clase de datos para roles
+    /// Clase de datos para Reserva de Habitación
     /// </summary>
-    public class RolesDa
+    public class DetalleReservaDa
     {
         /// <summary>
         /// Entidades de SisRes
@@ -19,23 +19,23 @@
         /// <summary>
         /// Método que inicializa las entidades
         /// </summary>
-        public RolesDa()
+        public DetalleReservaDa()
         {
             if (_sisResEntities == null)
                 _sisResEntities = new SisResEntities();
         }
 
         /// <summary>
-        /// Método que almacena un rol
+        /// Método que almacena el Detalle de una Reserva
         /// </summary>
-        /// <param name="rol">Datos del role</param>
+        /// <param name="detalleReserva">Datos del Detalle</param>
         /// <returns>Id de ingreso</returns>
-        public int CrearRol(GEN_Rol rol)
+        public int CrearDetalleReserva(RES_DetalleReserva detalleReserva)
         {
             var idRetorno = 0;
             try
             {
-                _sisResEntities.GEN_Rol.AddObject(rol);
+                _sisResEntities.RES_DetalleReserva.AddObject(detalleReserva);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();
                 return idRetorno;
@@ -47,16 +47,16 @@
         }
 
         /// <summary>
-        /// Método que obtiene un rol
+        /// Método que obtiene el Detalle de una Reserva
         /// </summary>
-        /// <param name="idRol">Id del role</param>
-        /// <returns>Role</returns>
-        public GEN_Rol ObtenerRol(int idRol)
+        /// <param name="idDetalle">Id de la reserva</param>
+        /// <returns>Detalle de Reserva</returns>
+        public RES_DetalleReserva ObtenerDetalleReserva(int idDetalle)
         {
-            var retorno = new GEN_Rol();
+            var retorno = new RES_DetalleReserva();
             try
             {
-                retorno = _sisResEntities.GEN_Rol.Single(tc => tc.IdRol == idRol);
+                retorno = _sisResEntities.RES_DetalleReserva.Single(tc => tc.IdDetalleReserva == idDetalle);
                 _sisResEntities.Dispose();
                 return retorno;
             }
@@ -67,15 +67,15 @@
         }
 
         /// <summary>
-        /// Método que obtiene todos los roles
+        /// Método que obtiene todos los Detalles de Reservas
         /// </summary>
-        /// <returns>Lista de roles</returns>
-        public List<GEN_Rol> ObtenerRoles()
+        /// <returns>Lista de Detalles</returns>
+        public List<RES_DetalleReserva> ObtenerDetallesReservas()
         {
-            var listaRetorno = new List<GEN_Rol>();
+            var listaRetorno = new List<RES_DetalleReserva>();
             try
             {
-                listaRetorno = _sisResEntities.GEN_Rol.ToList();
+                listaRetorno = _sisResEntities.RES_DetalleReserva.ToList();
                 _sisResEntities.Dispose();
                 return listaRetorno;
             }
@@ -86,17 +86,17 @@
         }
 
         /// <summary>
-        /// Método que actualiza un rol
+        /// Método que actualiza un Detalle de Reserva
         /// </summary>
-        /// <param name="rol">Datos del rol</param>
+        /// <param name="detalleReserva">Datos del Detalle</param>
         /// <returns>Id de actualización</returns>
-        public int ActualizarRol(GEN_Rol rol)
+        public int ActualizarDetalleReserva(RES_DetalleReserva detalleReserva)
         {
             var idRetorno = 0;
             try
             {
-                _sisResEntities.GEN_Rol.Attach(rol);
-                _sisResEntities.ObjectStateManager.ChangeObjectState(rol, EntityState.Modified);
+                _sisResEntities.RES_DetalleReserva.Attach(detalleReserva);
+                _sisResEntities.ObjectStateManager.ChangeObjectState(detalleReserva, EntityState.Modified);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();
                 return idRetorno;
@@ -108,17 +108,17 @@
         }
 
         /// <summary>
-        /// Método que elimina un rol
+        /// Método que elimina el Detalle de una Reserva
         /// </summary>
-        /// <param name="idRol">Id del rol</param>
+        /// <param name="idDetalle">Id del Detalle</param>
         /// <returns>Id de confirmación</returns>
-        public int EliminarRol(int idRol)
+        public int EliminarDetalleReserva(int idDetalle)
         {
             var idRetorno = 0;
             try
             {
                 object objetoEliminar;
-                _sisResEntities.TryGetObjectByKey(new EntityKey("SisResEntities.GEN_Roles", "IdRol", idRol), out objetoEliminar);
+                _sisResEntities.TryGetObjectByKey(new EntityKey("SisResEntities.RES_DetalleReserva", "IdDetalleReserva", idDetalle), out objetoEliminar);
                 _sisResEntities.DeleteObject(objetoEliminar);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();

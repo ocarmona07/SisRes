@@ -39,6 +39,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientesDa.cs" />
+    <Compile Include="HabitacionImagenesDa.cs" />
+    <Compile Include="DetalleReservaDa.cs" />
+    <Compile Include="ServiciosDa.cs" />
     <Compile Include="ReservaHabitacionDa.cs" />
     <Compile Include="HabitacionesDa.cs" />
     <Compile Include="RolesDa.cs" />
