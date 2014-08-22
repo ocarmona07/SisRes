@@ -1,13 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SisRes.Vista.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="True" CodeBehind="Index.aspx.cs" Inherits="SisRes.Vista.Default" %>
 
 <!DOCTYPE html>
 <html lang="es">
 <head runat="server">
     <title>SisRes - Sistema de Reservas para Hotel</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/layout.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Css/reset.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Css/layout.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Css/style.css" type="text/css" media="all" />
     <script type="text/javascript" src="Scripts/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="Scripts/cufon-yui.js"></script>
     <script type="text/javascript" src="Scripts/cufon-replace.js"></script>

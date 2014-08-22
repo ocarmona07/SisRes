@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="True"
     CodeBehind="Reservas.aspx.cs" Inherits="SisRes.Vista.Reservas" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
+<asp:Content ContentPlaceHolderID="cphHead" runat="server">
     <script language="javascript" type="text/javascript">
         function BuscarRut() {
             var rut = prompt('Ingrese el RUT sin digito verificador a buscar:');
@@ -13,7 +13,7 @@
         }
     </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
+<asp:Content ContentPlaceHolderID="cphMain" runat="server">
     <form id="frmReserva" runat="server">
     <asp:Panel runat="server" GroupingText="Cliente">
         <br/>
@@ -86,5 +86,6 @@
         </asp:Table>
         <br/>
     </asp:Panel>
+
     </form>
 </asp:Content>

@@ -27,7 +27,7 @@
 
             if (!IsPostBack)
             {
-                ddlTipoCliente.DataSource = 
+                ddlTipoCliente.DataSource = null;
             }
         }
     }
