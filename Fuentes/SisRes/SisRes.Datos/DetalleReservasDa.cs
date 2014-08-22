@@ -9,7 +9,7 @@
     /// <summary>
     /// Clase de datos para Reserva de Habitación
     /// </summary>
-    public class DetalleReservaDa
+    public class DetalleReservasDa
     {
         /// <summary>
         /// Entidades de SisRes
@@ -19,7 +19,7 @@
         /// <summary>
         /// Método que inicializa las entidades
         /// </summary>
-        public DetalleReservaDa()
+        public DetalleReservasDa()
         {
             if (_sisResEntities == null)
                 _sisResEntities = new SisResEntities();

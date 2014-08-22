@@ -38,6 +38,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientesBo.cs" />
+    <Compile Include="DetalleReservasBo.cs" />
+    <Compile Include="RolesBo.cs" />
+    <Compile Include="UsuariosBo.cs" />
     <Compile Include="GeneralBo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
