@@ -16,7 +16,7 @@
 <asp:Content ContentPlaceHolderID="cphMain" runat="server">
     <form id="frmReserva" runat="server">
     <asp:Panel runat="server" GroupingText="Cliente">
-        <br/>
+        <br />
         <asp:Table runat="server" Width="100%" HorizontalAlign="Center">
             <asp:TableRow runat="server" HorizontalAlign="Center">
                 <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Right" Height="40px">
@@ -84,7 +84,7 @@
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-        <br/>
+        <br />
     </asp:Panel>
     <asp:Panel runat="server" GroupingText="Habitación">
         <asp:Table runat="server">
