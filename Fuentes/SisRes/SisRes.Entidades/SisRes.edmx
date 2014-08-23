@@ -278,7 +278,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SisResModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SisResEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="GEN_Clientes" EntityType="SisResModel.GEN_Clientes" />
           <EntitySet Name="GEN_Rol" EntityType="SisResModel.GEN_Rol" />
           <EntitySet Name="GEN_TipoCliente" EntityType="SisResModel.GEN_TipoCliente" />
@@ -562,7 +562,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SisResModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="SisResModelStoreContainer" CdmEntityContainer="SisResEntities">
           <EntitySetMapping Name="GEN_Clientes">
             <EntityTypeMapping TypeName="SisResModel.GEN_Clientes">
               <MappingFragment StoreEntitySet="GEN_Clientes">

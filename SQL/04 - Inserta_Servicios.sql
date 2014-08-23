@@ -21,5 +21,5 @@ VALUES  ( 'Frigobar' ,
         ),
         ( 'Desayuno' ,
           'Servicio de desayuno entre 8:30 y 10:30' ,
-          0
+          10000
         )

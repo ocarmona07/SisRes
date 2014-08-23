@@ -38,7 +38,7 @@
             {
                 if (new UsuariosBo().ValidarAcceso(tbRut.Text, tbClave.Text))
                 {
-                    Session["RUTUsuario"] = int.Parse(tbRut.Text.Substring(0, tbRut.Text.Length - 1));
+                    Session["RUTUsuario"] = tbRut.Text.Substring(0, tbRut.Text.Length - 1);
                     Response.Redirect("Inicio.aspx");
                 }
                 else

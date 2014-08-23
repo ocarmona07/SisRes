@@ -33,7 +33,7 @@
         /// Método que obtiene todos los Tipos de Habitaciones
         /// </summary>
         /// <returns>Lista de Tipo de Habitaciones</returns>
-        public List<HAB_TipoHabitacion> ObtenerTipoHabitacion()
+        public List<HAB_TipoHabitacion> ObtenerTiposHabitaciones()
         {
             return new TipoHabitacionDa().ObtenerTiposHabitaciones();            
         }

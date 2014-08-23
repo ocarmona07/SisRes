@@ -33,7 +33,7 @@
         /// Método que obtiene todos los Tipos de Clientes
         /// </summary>
         /// <returns>Lista de Tipo de Clientes</returns>
-        public List<GEN_TipoCliente> ObtenerTipoCliente()
+        public List<GEN_TipoCliente> ObtenerTiposClientes()
         {
             return new TipoClienteDa().ObtenerTiposClientes();            
         }

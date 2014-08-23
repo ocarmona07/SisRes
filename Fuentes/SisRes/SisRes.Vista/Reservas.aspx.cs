@@ -1,4 +1,6 @@
-﻿namespace SisRes.Vista
+﻿using SisRes.Negocio;
+
+namespace SisRes.Vista
 {
     using System;
     using System.Collections.Generic;
@@ -25,10 +27,43 @@
                 ((HtmlGenericControl)Master.FindControl("liReservas")).Attributes.Add("class", "active");
             }
 
-            if (!IsPostBack)
-            {
-                ddlTipoCliente.DataSource = null;
-            }
+            if (IsPostBack) return;
+
+            ddlTipoCliente.DataSource = new TipoClienteBo().ObtenerTiposClientes();
+            ddlTipoCliente.DataTextField = "TipoCliente";
+            ddlTipoCliente.DataValueField = "IdTipoCliente";
+            ddlTipoCliente.DataBind();
+
+            ddlTipoHabitacion.DataSource = new TipoHabitacionBo().ObtenerTiposHabitaciones();
+            ddlTipoHabitacion.DataTextField = "TipoHabitacion";
+            ddlTipoHabitacion.DataValueField = "IdTipoHabitacion";
+            ddlTipoHabitacion.DataBind();
+
+            ddlNumeroHabitacion.DataSource = new HabitacionesBo().ListaHabitaciones(1);
+            ddlNumeroHabitacion.DataBind();
+
+            ddlServicios.DataSource = new ServiciosBo().ObtenerServicios();
+            ddlServicios.DataTextField = "Servicio";
+            ddlServicios.DataValueField = "IdServicio";
+            ddlServicios.DataBind();
+
+            tbServicioPrecio.Text = decimal.Round(new ServiciosBo().ObtenerServicio(1).Precio, 0) + "";
+        }
+
+        /// <summary>
+        /// Método que se llama al seleccionar un tipo de habitación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void CambioNumeroHabitacion(object sender, EventArgs e)
+        {
+            ddlNumeroHabitacion.DataSource = new HabitacionesBo().ListaHabitaciones(ddlTipoHabitacion.SelectedIndex + 1);
+            ddlNumeroHabitacion.DataBind();
+        }
+
+        protected void CambioServicios(object sender, EventArgs e)
+        {
+            tbServicioPrecio.Text = decimal.Round(new ServiciosBo().ObtenerServicio(int.Parse(ddlServicios.SelectedValue)).Precio, 0) + "";
         }
     }
 }

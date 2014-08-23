@@ -1,4 +1,6 @@
-﻿namespace SisRes.Negocio
+﻿using System.Runtime.Remoting;
+
+namespace SisRes.Negocio
 {
     using System.Collections.Generic;
     using Entidades;
@@ -56,6 +58,21 @@
         public int EliminarHabitacion(int idHabitacion)
         {
             return new HabitacionesDa().EliminarHabitacion(idHabitacion);            
+        }
+
+        /// <summary>
+        /// Método que retorna una lista de habitaciones
+        /// </summary>
+        /// <returns>Lista numérica de Habitaciones</returns>
+        public List<int> ListaHabitaciones(int piso)
+        {
+            var habitaciones = new List<int>();
+            for (var i = 1; i < 10; i++)
+            {
+                habitaciones.Add((piso * 100) + i);
+            }
+
+            return habitaciones;
         }
     }
 }

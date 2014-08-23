@@ -86,10 +86,67 @@
         </asp:Table>
         <br />
     </asp:Panel>
+    <br />
     <asp:Panel runat="server" GroupingText="Habitación">
-        <asp:Table runat="server">
-            
+        <br />
+        <asp:Table runat="server" Width="100%" HorizontalAlign="Center">
+            <asp:TableRow runat="server" HorizontalAlign="Center">
+                <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Right" Height="30px">
+                        <asp:Label runat="server" Text="Tipo de Habitación:" Style="padding-right: 5px;" />
+                </asp:TableCell>
+                <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left">
+                    <asp:DropDownList runat="server" ID="ddlTipoHabitacion" Width="130px" AutoPostBack="True"
+                        OnSelectedIndexChanged="CambioNumeroHabitacion" />
+                </asp:TableCell>
+                <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Right" Height="30px">
+                    <asp:Label runat="server" Text="Número de habitación:" Style="padding-right: 5px;" />
+                </asp:TableCell>
+                <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left">
+                    <asp:DropDownList runat="server" ID="ddlNumeroHabitacion" Width="60px" />
+                </asp:TableCell>
+                <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Right" Height="30px">
+                    <asp:Label runat="server" Text="Observación:" Style="padding-right: 5px;" />
+                </asp:TableCell>
+                <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left" RowSpan="2">
+                    <asp:TextBox runat="server" ID="tbObservacion" Width="250px" Height="60px" TextMode="MultiLine" />
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow runat="server" HorizontalAlign="Center" Height="30px">
+                <asp:TableCell runat="server" ColumnSpan="5" />
+            </asp:TableRow>
         </asp:Table>
+        <br />
     </asp:Panel>
+    <br />
+    <asp:Panel runat="server" GroupingText="Servicios">
+        <br />
+        <asp:Table runat="server" Width="80%" HorizontalAlign="Center">
+            <asp:TableRow runat="server" HorizontalAlign="Center" Height="30px">
+                <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Right" Width="100px">
+                    <asp:Label runat="server" Text="Servicios:" Style="padding-right: 5px;" />
+                </asp:TableCell>
+                <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left">
+                    <asp:DropDownList runat="server" ID="ddlServicios" Width="100px" AutoPostBack="True"
+                        OnSelectedIndexChanged="CambioServicios" />
+                </asp:TableCell>
+                <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Right" Height="30px">
+                        <asp:Label runat="server" Text="Precio:" Style="padding-right: 5px;" />
+                </asp:TableCell>
+                <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left">
+                    <asp:TextBox ID="tbServicioPrecio" runat="server" Width="160px" ReadOnly="True" />
+                </asp:TableCell>
+                <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left">
+                    <asp:Button runat="server" ID="btnAgregarServicio" Text="Agregar Servicio" Width="120px" />
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+        <asp:GridView runat="server" ID="gvServicios" EmptyDataText="Agregar servicios">
+        </asp:GridView>
+        <div style="text-align: center;">
+            <asp:Button runat="server" ID="btnQuitarServicio" Text="Quitar Servicio" Width="100px" />
+        </div>
+        <br />
+    </asp:Panel>
+    <br />
     </form>
 </asp:Content>
