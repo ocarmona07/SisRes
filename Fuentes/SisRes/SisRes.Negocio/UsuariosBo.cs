@@ -57,5 +57,13 @@
         {
             return new UsuariosDa().EliminarUsuario(rutUsuario);            
         }
+
+        public bool ValidarAcceso(string rut, string clave)
+        {
+            rut = rut.ToUpper();
+            rut = rut.Replace(".", "");
+            rut = rut.Replace("-", "");
+            return clave.Equals(ObtenerUsuario(int.Parse(rut.Substring(0, rut.Length - 1))).Clave);
+        }
     }
 }
