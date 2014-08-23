@@ -22,6 +22,30 @@
         protected void Page_Load(object sender, EventArgs e)
         {
             divCopyright.Controls.Add(new LiteralControl(new GeneralBo().Copyright));
+            if (IsPostBack) return;
+            Session["RUTUsuario"] = string.Empty;
+            lblMensaje.Text = string.Empty;
+        }
+
+        /// <summary>
+        /// Método que se llama al presionar el botón Ingresar
+        /// </summary>
+        /// <param name="sender">Objeto del evento</param>
+        /// <param name="e">Argumentos del evento</param>
+        protected void Ingresar(object sender, EventArgs e)
+        {
+            if (new GeneralBo().ValidarRut(tbRut.Text))
+            {
+                if (new UsuariosBo().ValidarAcceso(tbRut.Text, tbClave.Text))
+                {
+                    Session["RUTUsuario"] = int.Parse(tbRut.Text.Substring(0, tbRut.Text.Length - 1));
+                    Response.Redirect("Inicio.aspx");
+                }
+                else
+                    lblMensaje.Text = "RUT o Contraseña incorrecta.";
+            }
+            else
+                lblMensaje.Text = "El RUT ingresado no es válido.";
         }
     }
 }

@@ -48,30 +48,34 @@
                 </div>
                 <article id="content" class="box1">
                     <form id="frmLogin" runat="server">
-                        <asp:Table runat="server" Width="100%">
+                        <asp:Table runat="server">
                             <asp:TableRow runat="server" Height="120px">
-                                <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Bottom">
-                                    <asp:Label runat="server" Text="RUT:" />
+                                <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Bottom" Width="440px">
+                                    <asp:Label runat="server" Text="RUT:" Style="padding-right: 5px;" />
                                 </asp:TableCell>
-                                <asp:TableCell runat="server" VerticalAlign="Bottom">
+                                <asp:TableCell runat="server" VerticalAlign="Bottom" Width="500px">
                                     <asp:TextBox ID="tbRut" runat="server" Width="120px" />
                                 </asp:TableCell>
                             </asp:TableRow>
                             <asp:TableRow runat="server" Height="50px">
                                 <asp:TableCell runat="server" HorizontalAlign="Right" VerticalAlign="Middle">
-                                    <asp:Label runat="server" Text="Contraseña:" />                                
+                                    <asp:Label runat="server" Text="Contraseña:" Style="padding-right: 5px;" />                                
                                 </asp:TableCell>
                                 <asp:TableCell runat="server" VerticalAlign="Middle">
-                                    <asp:TextBox ID="tbPass" runat="server" Width="120px" />
+                                    <asp:TextBox ID="tbClave" runat="server" Width="120px" TextMode="Password" />
                                 </asp:TableCell>
                             </asp:TableRow>
                             <asp:TableRow runat="server" Height="50px">
                                 <asp:TableCell runat="server" HorizontalAlign="Center" ColumnSpan="2">
-                                    <asp:Button runat="server" Text="Aceptar" Width="130px" Height="30px" />
+                                    <asp:Button runat="server" ID="btnIngresar" Text="Ingresar" Width="130px" Height="30px"
+                                        OnClick="Ingresar" />
                                 </asp:TableCell>
                             </asp:TableRow>
                             <asp:TableRow runat="server" Height="150px">
-                                <asp:TableCell runat="server" HorizontalAlign="Right" ColumnSpan="2" />
+                                <asp:TableCell runat="server" HorizontalAlign="Center" VerticalAlign="Top" ColumnSpan="2">
+                                    <br />
+                                    <asp:Label runat="server" ID="lblMensaje" CssClass="Mensaje" />
+                                </asp:TableCell>
                             </asp:TableRow>
                         </asp:Table>
                     </form>
@@ -80,7 +84,7 @@
         </div>
     </div>
     <footer>
-        <div id="divCopyright" runat="server" class="col2" style="text-align: center;"></div>
+        <div id="divCopyright" runat="server" class="col2" style="text-align: center;" />
     </footer>
 </body>
 </html>

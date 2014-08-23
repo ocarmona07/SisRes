@@ -22,6 +22,11 @@
         protected void Page_Load(object sender, EventArgs e)
         {
             divCopyright.Controls.Add(new LiteralControl(new GeneralBo().Copyright));
+
+            if (IsPostBack) return;
+
+            if (string.IsNullOrEmpty(Session["RUTUsuario"].ToString()))
+                Response.Redirect("Index.aspx");
         }
     }
 }
