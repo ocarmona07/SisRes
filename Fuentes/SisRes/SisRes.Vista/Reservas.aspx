@@ -136,12 +136,17 @@
                     <asp:TextBox ID="tbServicioPrecio" runat="server" Width="160px" ReadOnly="True" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left">
-                    <asp:Button runat="server" ID="btnAgregarServicio" Text="Agregar Servicio" Width="120px" />
+                    <asp:Button runat="server" ID="btnAgregarServicio" Text="Agregar Servicio" Width="120px"
+                        OnClick="AgregarServicio" />
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Center">
+                    <asp:GridView runat="server" ID="gvServicios" EmptyDataText="Agregar servicios" ShowHeader="True"
+                        GridLines="Vertical" BorderWidth="1px" HorizontalAlign="Center" />
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-        <asp:GridView runat="server" ID="gvServicios" EmptyDataText="Agregar servicios">
-        </asp:GridView>
         <div style="text-align: center;">
             <asp:Button runat="server" ID="btnQuitarServicio" Text="Quitar Servicio" Width="100px" />
         </div>

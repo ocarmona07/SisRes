@@ -1,4 +1,5 @@
-﻿using SisRes.Negocio;
+﻿using System.Data;
+using SisRes.Negocio;
 
 namespace SisRes.Vista
 {
@@ -64,6 +65,18 @@ namespace SisRes.Vista
         protected void CambioServicios(object sender, EventArgs e)
         {
             tbServicioPrecio.Text = decimal.Round(new ServiciosBo().ObtenerServicio(int.Parse(ddlServicios.SelectedValue)).Precio, 0) + "";
+        }
+
+        protected void AgregarServicio(object sender, EventArgs e)
+        {
+            var servicio = new DataTable();
+            servicio.Columns.Add("Servicio");
+            servicio.Columns.Add("Precio");
+
+            servicio.Rows.Add(ddlServicios.SelectedItem.Text, tbServicioPrecio.Text);
+
+            gvServicios.DataSource = servicio;
+            gvServicios.DataBind();
         }
     }
 }
