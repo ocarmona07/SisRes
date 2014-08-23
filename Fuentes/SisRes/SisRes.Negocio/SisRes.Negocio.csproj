@@ -38,6 +38,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientesBo.cs" />
+    <Compile Include="TipoHabitacionBo.cs" />
+    <Compile Include="TipoClienteBo.cs" />
+    <Compile Include="ServiciosBo.cs" />
+    <Compile Include="HabitacionImagenesBo.cs" />
+    <Compile Include="HabitacionesBo.cs" />
     <Compile Include="DetalleReservasBo.cs" />
     <Compile Include="RolesBo.cs" />
     <Compile Include="UsuariosBo.cs" />
