@@ -10,6 +10,6 @@
 namespace SisRes.Vista {
     
     
-    public partial class Administracion {
+    public partial class Habitaciones {
     }
 }

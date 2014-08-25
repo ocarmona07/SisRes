@@ -37,26 +37,38 @@
                 <header>
                     <h1><a href="Inicio.aspx" id="logo">SisRes</a></h1>
 				</header>
+                <form id="Form1" runat="server">
                 <div class="box">
                     <div class="ic">
                         SisRes</div>
                     <nav>
-                        <ul id="menu">
-                            <li id="liInicio" runat="server">
-                                <a href="Inicio.aspx">Inicio</a>
-                            </li>
-                            <li id="liReservas" runat="server">
-                                <a href="Reservas.aspx">Reservas</a>
-                            </li>
-                            <li id="liAdministracion" runat="server">
-                                <a href="Administracion.aspx">Administración</a>
-                            </li>
-                        </ul>
+                        <asp:Menu ID="mnuPrincipal" runat="server" Orientation="Horizontal" CssClass="menu" SkipLinkText="">
+                            <LevelMenuItemStyles>
+                                <asp:MenuItemStyle CssClass="menuItem1" />
+                                <asp:MenuItemStyle CssClass="menuItem2" />
+                            </LevelMenuItemStyles>
+                            <StaticHoverStyle CssClass="menuHover" />
+                            <Items>
+                                <asp:MenuItem Text="Inicio" NavigateUrl="~/Inicio.aspx"/>
+                                <asp:MenuItem Text="Reservas" NavigateUrl="~/ListaReservas.aspx">
+                                    <asp:MenuItem Text="Lista de Reservas" NavigateUrl="~/ListaReservas.aspx" />
+                                    <asp:MenuItem Text="Ingresar Reserva" NavigateUrl="~/IngresarReservas.aspx" />
+                                    <asp:MenuItem Text="Habitaciones Disponibles" NavigateUrl="~/Habitaciones.aspx" />
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Administración">
+                                    <asp:MenuItem Text="Lista de Usuarios" NavigateUrl="#" />
+                                    <asp:MenuItem Text="Lista de Clientes" NavigateUrl="~/Administracion/ListaClientes.aspx" />
+                                    <asp:MenuItem Text="Servicios" NavigateUrl="" />
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Cerrar Sesión" NavigateUrl="~/Index.aspx" />
+                            </Items>
+                        </asp:Menu>
 				    </nav>
                 </div>
                 <article id="content" class="box1">
                     <asp:ContentPlaceHolder ID="cphMain" runat="server" />
                 </article>
+                </form>
             </div>
         </div>
     </div>

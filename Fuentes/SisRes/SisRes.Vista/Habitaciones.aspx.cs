@@ -11,7 +11,7 @@
     /// <summary>
     /// Clase encargada de mantener los módulos
     /// </summary>
-    public partial class Administracion : Page
+    public partial class Habitaciones : Page
     {
         /// <summary>
         /// Método que se llama al iniciar la vista
@@ -20,10 +20,7 @@
         /// <param name="e">Argumentos del evento</param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Master != null)
-            {
-                ((HtmlGenericControl)Master.FindControl("liAdministracion")).Attributes.Add("class", "active");
-            }
+
         }
     }
 }

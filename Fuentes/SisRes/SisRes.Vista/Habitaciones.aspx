@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="True"
-    CodeBehind="Administracion.aspx.cs" Inherits="SisRes.Vista.Administracion" %>
+﻿<%@ Page AutoEventWireup="True" CodeBehind="Habitaciones.aspx.cs" Inherits="SisRes.Vista.Habitaciones"
+    Language="C#" MasterPageFile="~/Base.Master" Title="" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
 </asp:Content>

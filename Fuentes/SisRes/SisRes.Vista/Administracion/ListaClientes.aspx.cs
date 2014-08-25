@@ -1,17 +1,12 @@
-﻿namespace SisRes.Vista
+﻿namespace SisRes.Vista.Administracion
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using System.Web.UI;
-    using System.Web.UI.HtmlControls;
-    using System.Web.UI.WebControls;
 
     /// <summary>
-    /// Clase de acceso al menu principal según perfil
+    /// Clase encargada de mantener los módulos
     /// </summary>
-    public partial class Inicio : Page
+    public partial class ListaClientes : Page
     {
         /// <summary>
         /// Método que se llama al iniciar la vista

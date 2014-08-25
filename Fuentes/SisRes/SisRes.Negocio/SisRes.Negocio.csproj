@@ -34,10 +34,13 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientesBo.cs" />
+    <Compile Include="ReservaHabitacionBo.cs" />
     <Compile Include="TipoHabitacionBo.cs" />
     <Compile Include="TipoClienteBo.cs" />
     <Compile Include="ServiciosBo.cs" />

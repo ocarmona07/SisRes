@@ -23,7 +23,7 @@
         /// Método que obtiene el Detalle de una Reserva
         /// </summary>
         /// <param name="idDetalleReserva">Id del detalleReserva</param>
-        /// <returns>DetalleReserva</returns>
+        /// <returns>Detalle de Reserva</returns>
         public RES_DetalleReserva ObtenerDetalleReserva(int idDetalleReserva)
         {
             return new DetalleReservasDa().ObtenerDetalleReserva(idDetalleReserva);            
@@ -32,8 +32,8 @@
         /// <summary>
         /// Método que obtiene todos los Detalle de Reservas
         /// </summary>
-        /// <returns>Lista de detalleReservaes</returns>
-        public List<RES_DetalleReserva> ObtenerDetalleReserva()
+        /// <returns>Lista de Detalles</returns>
+        public List<RES_DetalleReserva> ObtenerDetallesReservas()
         {
             return new DetalleReservasDa().ObtenerDetallesReservas();            
         }

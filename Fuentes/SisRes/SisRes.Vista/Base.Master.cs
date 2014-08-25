@@ -7,7 +7,7 @@
     using System.Web.UI;
     using System.Web.UI.WebControls;
 
-    using SisRes.Negocio;
+    using Negocio;
 
     /// <summary>
     /// Clase base para la funcionalidad del mantenedor
@@ -25,7 +25,7 @@
 
             if (IsPostBack) return;
 
-            if (string.IsNullOrEmpty(Session["RUTUsuario"].ToString()))
+            if (string.IsNullOrEmpty(Session["RUTUsuario"] + "") || Session.Keys.Count < 1)
                 Response.Redirect("Index.aspx");
         }
     }

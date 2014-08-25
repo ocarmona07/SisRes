@@ -7,9 +7,9 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SisRes.Vista {
+namespace SisRes.Vista.Administracion {
     
     
-    public partial class Inicio {
+    public partial class ListaClientes {
     }
 }

@@ -10,16 +10,7 @@
 namespace SisRes.Vista {
     
     
-    public partial class Reservas {
-        
-        /// <summary>
-        /// Control frmReserva.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmReserva;
+    public partial class IngresarReservas {
         
         /// <summary>
         /// Control tbRut.

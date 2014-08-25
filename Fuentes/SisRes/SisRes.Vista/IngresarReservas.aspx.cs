@@ -1,20 +1,19 @@
-﻿using System.Data;
-using SisRes.Negocio;
-
-namespace SisRes.Vista
+﻿namespace SisRes.Vista
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Linq;
     using System.Web;
     using System.Web.UI;
     using System.Web.UI.HtmlControls;
     using System.Web.UI.WebControls;
+    using Negocio;
 
     /// <summary>
     /// Clase de acceso al menu principal según perfil
     /// </summary>
-    public partial class Reservas : Page
+    public partial class IngresarReservas : Page
     {
         /// <summary>
         /// Método que se llama al iniciar la vista
@@ -23,11 +22,6 @@ namespace SisRes.Vista
         /// <param name="e">Argumentos del evento</param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Master != null)
-            {
-                ((HtmlGenericControl)Master.FindControl("liReservas")).Attributes.Add("class", "active");
-            }
-
             if (IsPostBack) return;
 
             ddlTipoCliente.DataSource = new TipoClienteBo().ObtenerTiposClientes();

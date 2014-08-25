@@ -39,9 +39,9 @@
                     <div class="ic">
                         SisRes</div>
                     <nav>
-                        <ul id="menu">
-                            <li class="active">
-                                <a href="Index.aspx">Inicio</a>
+                        <ul class="menu">
+                            <li>
+                                <a href="Index.aspx" class="menuItem1" style="text-decoration: none;">Inicio</a>
                             </li>
                         </ul>
 				    </nav>

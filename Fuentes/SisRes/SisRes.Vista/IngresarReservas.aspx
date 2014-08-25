@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="True"
-    CodeBehind="Reservas.aspx.cs" Inherits="SisRes.Vista.Reservas" %>
+    CodeBehind="IngresarReservas.aspx.cs" Inherits="SisRes.Vista.IngresarReservas" %>
 
 <asp:Content ContentPlaceHolderID="cphHead" runat="server">
     <script language="javascript" type="text/javascript">
@@ -14,7 +14,6 @@
     </script>
 </asp:Content>
 <asp:Content ContentPlaceHolderID="cphMain" runat="server">
-    <form id="frmReserva" runat="server">
     <asp:Panel runat="server" GroupingText="Cliente">
         <br />
         <asp:Table runat="server" Width="100%" HorizontalAlign="Center">
@@ -153,5 +152,4 @@
         <br />
     </asp:Panel>
     <br />
-    </form>
 </asp:Content>

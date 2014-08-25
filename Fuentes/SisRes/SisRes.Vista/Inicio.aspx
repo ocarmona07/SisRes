@@ -4,7 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
-    <form id="form1" runat="server">
     <div class="kwicks-wrapper">
         <ul class="kwicks horizontal">
             <li>
@@ -21,5 +20,4 @@
             </li>
         </ul>
     </div>
-    </form>
 </asp:Content>
