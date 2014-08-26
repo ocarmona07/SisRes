@@ -1,8 +1,7 @@
-﻿using System.Runtime.Remoting;
-
-namespace SisRes.Negocio
+﻿namespace SisRes.Negocio
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Entidades;
     using Datos;
 
@@ -28,7 +27,7 @@ namespace SisRes.Negocio
         /// <returns>Habitacion</returns>
         public HAB_Habitaciones ObtenerHabitacion(int idHabitacion)
         {
-            return new HabitacionesDa().ObtenerHabitacion(idHabitacion);            
+            return new HabitacionesDa().ObtenerHabitacion(idHabitacion);
         }
 
         /// <summary>
@@ -37,7 +36,7 @@ namespace SisRes.Negocio
         /// <returns>Lista de habitaciones</returns>
         public List<HAB_Habitaciones> ObtenerHabitaciones()
         {
-            return new HabitacionesDa().ObtenerHabitaciones();            
+            return new HabitacionesDa().ObtenerHabitaciones();
         }
 
         /// <summary>
@@ -47,7 +46,7 @@ namespace SisRes.Negocio
         /// <returns>Id de actualización</returns>
         public int ActualizarHabitacion(HAB_Habitaciones habitacion)
         {
-            return new HabitacionesDa().ActualizarHabitacion(habitacion);            
+            return new HabitacionesDa().ActualizarHabitacion(habitacion);
         }
 
         /// <summary>
@@ -57,22 +56,16 @@ namespace SisRes.Negocio
         /// <returns>Id de confirmación</returns>
         public int EliminarHabitacion(int idHabitacion)
         {
-            return new HabitacionesDa().EliminarHabitacion(idHabitacion);            
+            return new HabitacionesDa().EliminarHabitacion(idHabitacion);
         }
 
         /// <summary>
         /// Método que retorna una lista de habitaciones
         /// </summary>
         /// <returns>Lista numérica de Habitaciones</returns>
-        public List<int> ListaHabitaciones(int piso)
+        public List<HAB_Habitaciones> ListaHabitaciones(int tipoHabitacion)
         {
-            var habitaciones = new List<int>();
-            for (var i = 1; i < 10; i++)
-            {
-                habitaciones.Add((piso * 100) + i);
-            }
-
-            return habitaciones;
+            return ObtenerHabitaciones().Where(hab => tipoHabitacion.Equals(hab.IdTipoHabitacion) && true.Equals(hab.Disponible)).ToList();
         }
     }
 }

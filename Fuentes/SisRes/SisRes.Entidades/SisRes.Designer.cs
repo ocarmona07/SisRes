@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region Metadatos de relaciones en EDM
@@ -26,8 +25,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("SisResModel", "FK_HAB_HABI_REFERENCE_HAB_HABI", "HAB_Habitaciones", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisRes.Entidades.HAB_Habitaciones), "HAB_HabitacionImagenes", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisRes.Entidades.HAB_HabitacionImagenes), true)]
 [assembly: EdmRelationshipAttribute("SisResModel", "FK_HAB_HABI_REFERENCE_HAB_TIPO", "HAB_TipoHabitacion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisRes.Entidades.HAB_TipoHabitacion), "HAB_Habitaciones", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisRes.Entidades.HAB_Habitaciones), true)]
 [assembly: EdmRelationshipAttribute("SisResModel", "FK_RES_RESE_REFERENCE_HAB_HABI", "HAB_Habitaciones", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisRes.Entidades.HAB_Habitaciones), "RES_ReservaHabitacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisRes.Entidades.RES_ReservaHabitacion), true)]
-[assembly: EdmRelationshipAttribute("SisResModel", "FK_RES_DETA_REFERENCE_SER_SERV", "SER_Servicios", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SisRes.Entidades.SER_Servicios), "RES_DetalleReserva", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisRes.Entidades.RES_DetalleReserva), true)]
-[assembly: EdmRelationshipAttribute("SisResModel", "FK_RES_RESE_REFERENCE_RES_DETA", "RES_DetalleReserva", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisRes.Entidades.RES_DetalleReserva), "RES_ReservaHabitacion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisRes.Entidades.RES_ReservaHabitacion), true)]
+[assembly: EdmRelationshipAttribute("SisResModel", "FK_RES_DETA_REFERENCE_RES_RESE", "RES_ReservaHabitacion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisRes.Entidades.RES_ReservaHabitacion), "RES_DetalleReserva", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisRes.Entidades.RES_DetalleReserva), true)]
+[assembly: EdmRelationshipAttribute("SisResModel", "FK_RES_DETA_REFERENCE_SER_SERV", "SER_Servicios", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SisRes.Entidades.SER_Servicios), "RES_DetalleReserva", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SisRes.Entidades.RES_DetalleReserva), true)]
 
 #endregion
 
@@ -240,7 +239,6 @@ namespace SisRes.Entidades
         private ObjectSet<SER_Servicios> _SER_Servicios;
 
         #endregion
-
         #region Métodos AddTo
     
         /// <summary>
@@ -324,11 +322,11 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entidades
     
     /// <summary>
@@ -365,7 +363,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -612,7 +609,6 @@ namespace SisRes.Entidades
         partial void OnEstadoChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -677,7 +673,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -704,7 +699,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -783,7 +777,6 @@ namespace SisRes.Entidades
         partial void OnDescripcionChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -810,7 +803,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -839,7 +831,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -942,7 +933,6 @@ namespace SisRes.Entidades
         partial void OnDescuentoChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -969,7 +959,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1008,7 +997,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -1255,7 +1243,6 @@ namespace SisRes.Entidades
         partial void OnEstadoChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -1320,7 +1307,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1353,7 +1339,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -1504,7 +1489,6 @@ namespace SisRes.Entidades
         partial void OnReservaChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -1591,7 +1575,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1618,7 +1601,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -1676,7 +1658,6 @@ namespace SisRes.Entidades
         partial void OnImagenChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -1719,7 +1700,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1738,7 +1718,7 @@ namespace SisRes.Entidades
         /// <param name="idTipoHabitacion">Valor inicial de la propiedad IdTipoHabitacion.</param>
         /// <param name="tipoHabitacion">Valor inicial de la propiedad TipoHabitacion.</param>
         /// <param name="precio">Valor inicial de la propiedad Precio.</param>
-        public static HAB_TipoHabitacion CreateHAB_TipoHabitacion(global::System.Int32 idTipoHabitacion, global::System.String tipoHabitacion, global::System.Decimal precio)
+        public static HAB_TipoHabitacion CreateHAB_TipoHabitacion(global::System.Int32 idTipoHabitacion, global::System.String tipoHabitacion, global::System.Int32 precio)
         {
             HAB_TipoHabitacion hAB_TipoHabitacion = new HAB_TipoHabitacion();
             hAB_TipoHabitacion.IdTipoHabitacion = idTipoHabitacion;
@@ -1748,7 +1728,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -1831,7 +1810,7 @@ namespace SisRes.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Precio
+        public global::System.Int32 Precio
         {
             get
             {
@@ -1846,12 +1825,11 @@ namespace SisRes.Entidades
                 OnPrecioChanged();
             }
         }
-        private global::System.Decimal _Precio;
-        partial void OnPrecioChanging(global::System.Decimal value);
+        private global::System.Int32 _Precio;
+        partial void OnPrecioChanging(global::System.Int32 value);
         partial void OnPrecioChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -1878,7 +1856,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1894,16 +1871,19 @@ namespace SisRes.Entidades
         /// <summary>
         /// Crear un nuevo objeto RES_DetalleReserva.
         /// </summary>
-        /// <param name="idDetalleReserva">Valor inicial de la propiedad IdDetalleReserva.</param>
-        public static RES_DetalleReserva CreateRES_DetalleReserva(global::System.Int32 idDetalleReserva)
+        /// <param name="idReserva">Valor inicial de la propiedad IdReserva.</param>
+        /// <param name="idServicio">Valor inicial de la propiedad IdServicio.</param>
+        /// <param name="precio">Valor inicial de la propiedad Precio.</param>
+        public static RES_DetalleReserva CreateRES_DetalleReserva(global::System.Int32 idReserva, global::System.Int32 idServicio, global::System.Int32 precio)
         {
             RES_DetalleReserva rES_DetalleReserva = new RES_DetalleReserva();
-            rES_DetalleReserva.IdDetalleReserva = idDetalleReserva;
+            rES_DetalleReserva.IdReserva = idReserva;
+            rES_DetalleReserva.IdServicio = idServicio;
+            rES_DetalleReserva.Precio = precio;
             return rES_DetalleReserva;
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -1911,34 +1891,34 @@ namespace SisRes.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 IdDetalleReserva
+        public global::System.Int32 IdReserva
         {
             get
             {
-                return _IdDetalleReserva;
+                return _IdReserva;
             }
             set
             {
-                if (_IdDetalleReserva != value)
+                if (_IdReserva != value)
                 {
-                    OnIdDetalleReservaChanging(value);
-                    ReportPropertyChanging("IdDetalleReserva");
-                    _IdDetalleReserva = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("IdDetalleReserva");
-                    OnIdDetalleReservaChanged();
+                    OnIdReservaChanging(value);
+                    ReportPropertyChanging("IdReserva");
+                    _IdReserva = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdReserva");
+                    OnIdReservaChanged();
                 }
             }
         }
-        private global::System.Int32 _IdDetalleReserva;
-        partial void OnIdDetalleReservaChanging(global::System.Int32 value);
-        partial void OnIdDetalleReservaChanged();
+        private global::System.Int32 _IdReserva;
+        partial void OnIdReservaChanging(global::System.Int32 value);
+        partial void OnIdReservaChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> IdServicio
+        public global::System.Int32 IdServicio
         {
             get
             {
@@ -1946,23 +1926,26 @@ namespace SisRes.Entidades
             }
             set
             {
-                OnIdServicioChanging(value);
-                ReportPropertyChanging("IdServicio");
-                _IdServicio = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IdServicio");
-                OnIdServicioChanged();
+                if (_IdServicio != value)
+                {
+                    OnIdServicioChanging(value);
+                    ReportPropertyChanging("IdServicio");
+                    _IdServicio = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdServicio");
+                    OnIdServicioChanged();
+                }
             }
         }
-        private Nullable<global::System.Int32> _IdServicio;
-        partial void OnIdServicioChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _IdServicio;
+        partial void OnIdServicioChanging(global::System.Int32 value);
         partial void OnIdServicioChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Precio
+        public global::System.Int32 Precio
         {
             get
             {
@@ -1970,21 +1953,61 @@ namespace SisRes.Entidades
             }
             set
             {
-                OnPrecioChanging(value);
-                ReportPropertyChanging("Precio");
-                _Precio = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Precio");
-                OnPrecioChanged();
+                if (_Precio != value)
+                {
+                    OnPrecioChanging(value);
+                    ReportPropertyChanging("Precio");
+                    _Precio = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Precio");
+                    OnPrecioChanged();
+                }
             }
         }
-        private Nullable<global::System.Decimal> _Precio;
-        partial void OnPrecioChanging(Nullable<global::System.Decimal> value);
+        private global::System.Int32 _Precio;
+        partial void OnPrecioChanging(global::System.Int32 value);
         partial void OnPrecioChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SisResModel", "FK_RES_DETA_REFERENCE_RES_RESE", "RES_ReservaHabitacion")]
+        public RES_ReservaHabitacion RES_ReservaHabitacion
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RES_ReservaHabitacion>("SisResModel.FK_RES_DETA_REFERENCE_RES_RESE", "RES_ReservaHabitacion").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RES_ReservaHabitacion>("SisResModel.FK_RES_DETA_REFERENCE_RES_RESE", "RES_ReservaHabitacion").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RES_ReservaHabitacion> RES_ReservaHabitacionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RES_ReservaHabitacion>("SisResModel.FK_RES_DETA_REFERENCE_RES_RESE", "RES_ReservaHabitacion");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RES_ReservaHabitacion>("SisResModel.FK_RES_DETA_REFERENCE_RES_RESE", "RES_ReservaHabitacion", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -2023,31 +2046,8 @@ namespace SisRes.Entidades
                 }
             }
         }
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SisResModel", "FK_RES_RESE_REFERENCE_RES_DETA", "RES_ReservaHabitacion")]
-        public EntityCollection<RES_ReservaHabitacion> RES_ReservaHabitacion
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RES_ReservaHabitacion>("SisResModel.FK_RES_RESE_REFERENCE_RES_DETA", "RES_ReservaHabitacion");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RES_ReservaHabitacion>("SisResModel.FK_RES_RESE_REFERENCE_RES_DETA", "RES_ReservaHabitacion", value);
-                }
-            }
-        }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2067,18 +2067,16 @@ namespace SisRes.Entidades
         /// <param name="rUTUsuario">Valor inicial de la propiedad RUTUsuario.</param>
         /// <param name="rUTCliente">Valor inicial de la propiedad RUTCliente.</param>
         /// <param name="idHabitacion">Valor inicial de la propiedad IdHabitacion.</param>
-        /// <param name="idDetalleReserva">Valor inicial de la propiedad IdDetalleReserva.</param>
         /// <param name="horaFechaRes">Valor inicial de la propiedad HoraFechaRes.</param>
         /// <param name="diasReserva">Valor inicial de la propiedad DiasReserva.</param>
         /// <param name="descuento">Valor inicial de la propiedad Descuento.</param>
-        public static RES_ReservaHabitacion CreateRES_ReservaHabitacion(global::System.Int32 idReserva, global::System.Int32 rUTUsuario, global::System.Int32 rUTCliente, global::System.Int32 idHabitacion, global::System.Int32 idDetalleReserva, global::System.DateTime horaFechaRes, global::System.Int32 diasReserva, global::System.Int32 descuento)
+        public static RES_ReservaHabitacion CreateRES_ReservaHabitacion(global::System.Int32 idReserva, global::System.Int32 rUTUsuario, global::System.Int32 rUTCliente, global::System.Int32 idHabitacion, global::System.DateTime horaFechaRes, global::System.Int32 diasReserva, global::System.Int32 descuento)
         {
             RES_ReservaHabitacion rES_ReservaHabitacion = new RES_ReservaHabitacion();
             rES_ReservaHabitacion.IdReserva = idReserva;
             rES_ReservaHabitacion.RUTUsuario = rUTUsuario;
             rES_ReservaHabitacion.RUTCliente = rUTCliente;
             rES_ReservaHabitacion.IdHabitacion = idHabitacion;
-            rES_ReservaHabitacion.IdDetalleReserva = idDetalleReserva;
             rES_ReservaHabitacion.HoraFechaRes = horaFechaRes;
             rES_ReservaHabitacion.DiasReserva = diasReserva;
             rES_ReservaHabitacion.Descuento = descuento;
@@ -2086,7 +2084,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -2193,30 +2190,6 @@ namespace SisRes.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 IdDetalleReserva
-        {
-            get
-            {
-                return _IdDetalleReserva;
-            }
-            set
-            {
-                OnIdDetalleReservaChanging(value);
-                ReportPropertyChanging("IdDetalleReserva");
-                _IdDetalleReserva = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IdDetalleReserva");
-                OnIdDetalleReservaChanged();
-            }
-        }
-        private global::System.Int32 _IdDetalleReserva;
-        partial void OnIdDetalleReservaChanging(global::System.Int32 value);
-        partial void OnIdDetalleReservaChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.DateTime HoraFechaRes
         {
             get
@@ -2285,7 +2258,6 @@ namespace SisRes.Entidades
         partial void OnDescuentoChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -2409,40 +2381,23 @@ namespace SisRes.Entidades
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SisResModel", "FK_RES_RESE_REFERENCE_RES_DETA", "RES_DetalleReserva")]
-        public RES_DetalleReserva RES_DetalleReserva
+        [EdmRelationshipNavigationPropertyAttribute("SisResModel", "FK_RES_DETA_REFERENCE_RES_RESE", "RES_DetalleReserva")]
+        public EntityCollection<RES_DetalleReserva> RES_DetalleReserva
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RES_DetalleReserva>("SisResModel.FK_RES_RESE_REFERENCE_RES_DETA", "RES_DetalleReserva").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RES_DetalleReserva>("SisResModel.FK_RES_RESE_REFERENCE_RES_DETA", "RES_DetalleReserva").Value = value;
-            }
-        }
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<RES_DetalleReserva> RES_DetalleReservaReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RES_DetalleReserva>("SisResModel.FK_RES_RESE_REFERENCE_RES_DETA", "RES_DetalleReserva");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RES_DetalleReserva>("SisResModel.FK_RES_DETA_REFERENCE_RES_RESE", "RES_DetalleReserva");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RES_DetalleReserva>("SisResModel.FK_RES_RESE_REFERENCE_RES_DETA", "RES_DetalleReserva", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RES_DetalleReserva>("SisResModel.FK_RES_DETA_REFERENCE_RES_RESE", "RES_DetalleReserva", value);
                 }
             }
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2461,7 +2416,7 @@ namespace SisRes.Entidades
         /// <param name="idServicio">Valor inicial de la propiedad IdServicio.</param>
         /// <param name="servicio">Valor inicial de la propiedad Servicio.</param>
         /// <param name="precio">Valor inicial de la propiedad Precio.</param>
-        public static SER_Servicios CreateSER_Servicios(global::System.Int32 idServicio, global::System.String servicio, global::System.Decimal precio)
+        public static SER_Servicios CreateSER_Servicios(global::System.Int32 idServicio, global::System.String servicio, global::System.Int32 precio)
         {
             SER_Servicios sER_Servicios = new SER_Servicios();
             sER_Servicios.IdServicio = idServicio;
@@ -2471,7 +2426,6 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -2554,7 +2508,7 @@ namespace SisRes.Entidades
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Precio
+        public global::System.Int32 Precio
         {
             get
             {
@@ -2569,12 +2523,11 @@ namespace SisRes.Entidades
                 OnPrecioChanged();
             }
         }
-        private global::System.Decimal _Precio;
-        partial void OnPrecioChanging(global::System.Decimal value);
+        private global::System.Int32 _Precio;
+        partial void OnPrecioChanging(global::System.Int32 value);
         partial void OnPrecioChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -2601,10 +2554,8 @@ namespace SisRes.Entidades
         }
 
         #endregion
-
     }
 
     #endregion
-
     
 }

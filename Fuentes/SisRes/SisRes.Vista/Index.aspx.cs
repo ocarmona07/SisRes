@@ -1,12 +1,7 @@
 ﻿namespace SisRes.Vista
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using System.Web.UI;
-    using System.Web.UI.HtmlControls;
-    using System.Web.UI.WebControls;
     using Negocio;
 
     /// <summary>
@@ -38,7 +33,7 @@
             {
                 if (new UsuariosBo().ValidarAcceso(tbRut.Text, tbClave.Text))
                 {
-                    Session["RUTUsuario"] = tbRut.Text.Substring(0, tbRut.Text.Length - 1);
+                    Session["RUTUsuario"] = tbRut.Text.Substring(0, tbRut.Text.Length - 1).Replace(".", "").Replace("-", "");
                     Response.Redirect("Inicio.aspx");
                 }
                 else

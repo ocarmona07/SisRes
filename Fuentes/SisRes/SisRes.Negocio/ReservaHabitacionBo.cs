@@ -61,19 +61,5 @@ namespace SisRes.Negocio
         {
             return new ReservaHabitacionDa().EliminarReservaHabitacion(idReservaHabitacion);            
         }
-
-        public DataTable CargarListaReservas()
-        {
-            try
-            {
-                var listaReservas = ObtenerReservasHabitaciones();
-                var detalleReservas = new DetalleReservasBo().ObtenerDetallesReservas();
-                return null;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
     }
 }

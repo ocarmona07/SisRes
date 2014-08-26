@@ -33,6 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\Ensamblados\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin, Version=4.97.4951.28478, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ensamblados\AjaxMin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,6 +60,7 @@
   <ItemGroup>
     <Content Include="Administracion\ListaClientes.aspx" />
     <Content Include="Habitaciones.aspx" />
+    <Content Include="Images\calendar.png" />
     <Content Include="Images\eliminar.gif" />
     <Content Include="Images\editar.gif" />
     <Content Include="ListaReservas.aspx" />

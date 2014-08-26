@@ -1,7 +1,4 @@
-﻿using SisRes.Entidades;
-using SisRes.Negocio;
-
-namespace SisRes.Vista
+﻿namespace SisRes.Vista
 {
     using System;
     using System.Collections.Generic;
@@ -11,6 +8,8 @@ namespace SisRes.Vista
     using System.Web.UI;
     using System.Web.UI.HtmlControls;
     using System.Web.UI.WebControls;
+    using Entidades;
+    using Negocio;
 
     /// <summary>
     /// Clase encargada de mantener los módulos
@@ -24,7 +23,10 @@ namespace SisRes.Vista
         /// <param name="e">Argumentos del evento</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack) return;
 
+            gvReservas.DataSource = new ReservaHabitacionBo().ObtenerReservasHabitaciones();
+            gvReservas.DataBind();
         }
 
         /// <summary>
@@ -54,6 +56,8 @@ namespace SisRes.Vista
                         ? "Reserva eliminada correctamente"
                         : "Error al eliminar la reserva";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeEliminar", @"<script language='javascript' type='text/javascript'>alert('" + mensaje + "');</script>", false);
+                    gvReservas.DataSource = new ReservaHabitacionBo().ObtenerReservasHabitaciones();
+                    gvReservas.DataBind();
                     break;
             }
         }

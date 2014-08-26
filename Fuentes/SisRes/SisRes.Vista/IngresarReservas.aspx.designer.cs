@@ -13,22 +13,31 @@ namespace SisRes.Vista {
     public partial class IngresarReservas {
         
         /// <summary>
-        /// Control tbRut.
+        /// Control tkmDate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbRut;
+        protected global::AjaxControlToolkit.ToolkitScriptManager tkmDate;
         
         /// <summary>
-        /// Control tbDv.
+        /// Control tbRutCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbDv;
+        protected global::System.Web.UI.WebControls.TextBox tbRutCliente;
+        
+        /// <summary>
+        /// Control tbDvCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbDvCliente;
         
         /// <summary>
         /// Control ibBuscarRut.
@@ -103,13 +112,13 @@ namespace SisRes.Vista {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoCliente;
         
         /// <summary>
-        /// Control chkEstado.
+        /// Control chkEstadoCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkEstado;
+        protected global::System.Web.UI.WebControls.CheckBox chkEstadoCliente;
         
         /// <summary>
         /// Control ddlTipoHabitacion.
@@ -121,13 +130,22 @@ namespace SisRes.Vista {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoHabitacion;
         
         /// <summary>
-        /// Control ddlNumeroHabitacion.
+        /// Control ddlHabitacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNumeroHabitacion;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHabitacion;
+        
+        /// <summary>
+        /// Control tbHabitacionPrecio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbHabitacionPrecio;
         
         /// <summary>
         /// Control tbObservacion.
@@ -139,33 +157,6 @@ namespace SisRes.Vista {
         protected global::System.Web.UI.WebControls.TextBox tbObservacion;
         
         /// <summary>
-        /// Control ddlServicios.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlServicios;
-        
-        /// <summary>
-        /// Control tbServicioPrecio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbServicioPrecio;
-        
-        /// <summary>
-        /// Control btnAgregarServicio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarServicio;
-        
-        /// <summary>
         /// Control gvServicios.
         /// </summary>
         /// <remarks>
@@ -175,12 +166,84 @@ namespace SisRes.Vista {
         protected global::System.Web.UI.WebControls.GridView gvServicios;
         
         /// <summary>
-        /// Control btnQuitarServicio.
+        /// Control tbFechaReserva.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnQuitarServicio;
+        protected global::System.Web.UI.WebControls.TextBox tbFechaReserva;
+        
+        /// <summary>
+        /// Control ibFechaReserva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ibFechaReserva;
+        
+        /// <summary>
+        /// Control calFechaReserva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender calFechaReserva;
+        
+        /// <summary>
+        /// Control ddlDias.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDias;
+        
+        /// <summary>
+        /// Control tbDescuento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbDescuento;
+        
+        /// <summary>
+        /// Control tbPrecioTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbPrecioTotal;
+        
+        /// <summary>
+        /// Control hdnIdReserva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnIdReserva;
+        
+        /// <summary>
+        /// Control btnIngresarReserva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnIngresarReserva;
+        
+        /// <summary>
+        /// Control divBuscarCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBuscarCliente;
     }
 }

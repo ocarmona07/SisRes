@@ -4,43 +4,38 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
-    <h1>
-        Listado de Reservas</h1>
+    <h2>
+            Listado de Reservas</h2>
     <br />
-    <asp:GridView ID="gvReservas" runat="server" AutoGenerateColumns="False" ShowHeader="True" OnRowCommand="ReservasRowCommand">
+    <asp:GridView ID="gvReservas" runat="server" AutoGenerateColumns="False" ShowHeader="True"
+        HorizontalAlign="Center" OnRowCommand="ReservasRowCommand">
         <Columns>
             <asp:BoundField HeaderText="Usuario" DataField="RUTUsuario" ItemStyle-Width="90px"
                 ItemStyle-HorizontalAlign="Center" />
             <asp:BoundField HeaderText="Cliente" DataField="RUTCliente" ItemStyle-Width="90px"
                 ItemStyle-HorizontalAlign="Center" />
-            <asp:BoundField HeaderText="Habitación" DataField="TipoHabitacion" ItemStyle-Width="80px"
+            <asp:BoundField HeaderText="Habitación" DataField="IdHabitacion" ItemStyle-Width="80px"
                 ItemStyle-HorizontalAlign="Center" />
-            <asp:BoundField HeaderText="Número" DataField="Numero" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Center" />
+            <asp:BoundField HeaderText="Número" DataField="" ItemStyle-Width="60px" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundField HeaderText="Fecha Reserva" DataField="HoraFechaRes" ItemStyle-Width="80px"
                 DataFormatString="{0:dd/MM/yyyy}" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundField HeaderText="Cant. Días" DataField="DiasReserva" ItemStyle-Width="80px"
                 ItemStyle-HorizontalAlign="Center" />
-            <asp:TemplateField HeaderText="Servicios">
+            <asp:TemplateField HeaderText="Servicios" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Center">
                 <ItemTemplate>
-                    <asp:ImageButton runat="server" ID="ibServicios" ImageUrl="~/Images/servicio.jpg" ToolTip="Servicios"
-                        CommandName="Servicios" CommandArgument='<%# Eval("IdDetalleReserva") %>' />
+                    <asp:ImageButton runat="server" ID="ibServicios" ImageUrl="~/Images/servicio.jpg"
+                        ToolTip="Servicios" CommandName="Servicios" CommandArgument='<%# Eval("IdReserva") %>' />
                 </ItemTemplate>
-                <ItemStyle HorizontalAlign="Center" />
-                <HeaderStyle Width="60px" />
             </asp:TemplateField>
-            <asp:BoundField HeaderText="Total" DataField="Total" ItemStyle-Width="80px"
-                ItemStyle-HorizontalAlign="Center" />
-            <asp:TemplateField HeaderText="Acciones">
+            <asp:BoundField HeaderText="Total" DataField="" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center" />
+            <asp:TemplateField HeaderText="Acciones" HeaderStyle-Width="60px" ItemStyle-HorizontalAlign="Center">
                 <ItemTemplate>
                     <asp:ImageButton runat="server" ID="ibEditar" ImageUrl="~/Images/editar.gif" ToolTip="Editar"
-                        CommandName="Editar" CommandArgument='<%# Eval("IdReserva") %>' />
-                    <asp:Label runat="server" Text=" / " />
+                        CommandName="Editar" CommandArgument='<%# Eval("IdReserva") %>' Style="margin-right: 10px;" />
                     <asp:ImageButton runat="server" ID="ibEliminar" ImageUrl="~/Images/eliminar.gif"
                         ToolTip="Eliminar" CommandName="Eliminar" CommandArgument='<%# Eval("IdReserva") %>'
                         OnClientClick="javascript: return confirm('¿Desea eliminar la reserva seleccionadad?');" />
                 </ItemTemplate>
-                <ItemStyle HorizontalAlign="Center" />
-                <HeaderStyle Width="60px" />
             </asp:TemplateField>
         </Columns>
     </asp:GridView>

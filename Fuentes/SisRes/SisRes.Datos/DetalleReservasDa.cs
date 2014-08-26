@@ -56,7 +56,7 @@
             var retorno = new RES_DetalleReserva();
             try
             {
-                retorno = _sisResEntities.RES_DetalleReserva.Single(tc => tc.IdDetalleReserva == idDetalle);
+                retorno = _sisResEntities.RES_DetalleReserva.Single(tc => tc.IdReserva == idDetalle);
                 _sisResEntities.Dispose();
                 return retorno;
             }
@@ -118,7 +118,7 @@
             try
             {
                 object objetoEliminar;
-                _sisResEntities.TryGetObjectByKey(new EntityKey("SisResEntities.RES_DetalleReserva", "IdDetalleReserva", idDetalle), out objetoEliminar);
+                _sisResEntities.TryGetObjectByKey(new EntityKey("SisResEntities.RES_DetalleReserva", "IdReserva", idDetalle), out objetoEliminar);
                 _sisResEntities.DeleteObject(objetoEliminar);
                 idRetorno = _sisResEntities.SaveChanges();
                 _sisResEntities.Dispose();

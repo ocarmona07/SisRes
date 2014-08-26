@@ -113,7 +113,7 @@ CREATE TABLE HAB_TipoHabitacion
       IdTipoHabitacion INT IDENTITY ,
       TipoHabitacion VARCHAR(30) NOT NULL ,
       Descripcion VARCHAR(MAX) NULL ,
-      Precio MONEY NOT NULL ,
+      Precio INT NOT NULL ,
       CONSTRAINT PK_HAB_TIPOHABITACION PRIMARY KEY ( IdTipoHabitacion )
     )
 go
@@ -123,10 +123,9 @@ go
 /*==============================================================*/
 CREATE TABLE RES_DetalleReserva
     (
-      IdDetalleReserva INT IDENTITY ,
-      IdServicio INT NULL ,
-      Precio MONEY NULL ,
-      CONSTRAINT PK_RES_DETALLERESERVA PRIMARY KEY ( IdDetalleReserva )
+      IdReserva INT NOT NULL ,
+      IdServicio INT NOT NULL ,
+      Precio INT NOT NULL
     )
 go
 
@@ -139,7 +138,6 @@ CREATE TABLE RES_ReservaHabitacion
       RUTUsuario INT NOT NULL ,
       RUTCliente INT NOT NULL ,
       IdHabitacion INT NOT NULL ,
-      IdDetalleReserva INT NOT NULL ,
       HoraFechaRes DATETIME NOT NULL ,
       DiasReserva INT NOT NULL ,
       Descuento INT NOT NULL ,
@@ -155,7 +153,7 @@ CREATE TABLE SER_Servicios
       IdServicio INT IDENTITY ,
       Servicio VARCHAR(30) NOT NULL ,
       Descripcion VARCHAR(MAX) NULL ,
-      Precio MONEY NOT NULL ,
+      Precio INT NOT NULL ,
       CONSTRAINT PK_SER_SERVICIOS PRIMARY KEY ( IdServicio )
     )
 go
@@ -185,9 +183,9 @@ ADD CONSTRAINT FK_RES_DETA_REFERENCE_SER_SERV FOREIGN KEY (IdServicio)
 REFERENCES SER_Servicios (IdServicio)
 go
 
-ALTER TABLE RES_ReservaHabitacion
-ADD CONSTRAINT FK_RES_RESE_REFERENCE_RES_DETA FOREIGN KEY (IdDetalleReserva)
-REFERENCES RES_DetalleReserva (IdDetalleReserva)
+ALTER TABLE RES_DetalleReserva
+ADD CONSTRAINT FK_RES_DETA_REFERENCE_RES_RESE FOREIGN KEY (IdReserva)
+REFERENCES RES_ReservaHabitacion (IdReserva)
 go
 
 ALTER TABLE RES_ReservaHabitacion

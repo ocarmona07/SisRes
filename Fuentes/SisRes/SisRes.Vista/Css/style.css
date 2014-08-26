@@ -162,7 +162,7 @@ header
 .menuItem2
 {
     display: block;
-    padding: 0 20px;
+    padding: 0 39px;
     font-size: 16px;
     color: #12110f;
     line-height: 30px;
@@ -538,4 +538,15 @@ legend
     font-weight: bold;
     font-size: 16px;
     color: red;
+}
+#divBuscarCliente
+{
+    width: 400px;
+    height: 100px;
+    border: 1px solid gray;
+    box-shadow: 0 0 7px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -75px 0 0 -125px;
 }
