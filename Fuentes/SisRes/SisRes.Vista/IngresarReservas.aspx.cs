@@ -58,7 +58,10 @@ namespace SisRes.Vista
             var reserva = new ReservaHabitacionBo().ObtenerReservaHabitacion(int.Parse(hdnIdReserva.Value));
             var cliente = new ClientesBo().ObtenerCliente(reserva.RUTCliente);
             var habitacion = new HabitacionesBo().ObtenerHabitacion(reserva.IdHabitacion);
+            habitacion.Disponible = true;
+            new HabitacionesBo().ActualizarHabitacion(habitacion);
             var detalles = new DetalleReservasBo().ObtenerDetallesReservas();
+
             tbRutCliente.Text = reserva.RUTCliente + "";
             tbDvCliente.Text = cliente.DV;
             tbNombres.Text = cliente.Nombres;
@@ -72,19 +75,23 @@ namespace SisRes.Vista
             tbFechaReserva.Text = reserva.HoraFechaRes.ToShortDateString();
             chkEstadoCliente.Checked = cliente.Estado;
 
+            ddlHabitacion.DataSource = new HabitacionesBo().ListaHabitaciones(tipoHabitacion[0].IdTipoHabitacion);
+            ddlHabitacion.DataTextField = "Numero";
+            ddlHabitacion.DataValueField = "IdHabitacion";
+            ddlHabitacion.DataBind();
+
             ddlTipoCliente.SelectedValue = cliente.IdTipoCliente + "";
             ddlTipoHabitacion.SelectedValue = habitacion.IdTipoHabitacion + "";
-            ddlHabitacion.SelectedValue = habitacion.Numero + "";
+            ddlHabitacion.SelectedValue = habitacion.IdHabitacion + "";
             ddlDias.SelectedValue = reserva.DiasReserva + "";
 
             foreach (GridViewRow fila in gvServicios.Rows)
             {
-                var chkSevicio = ((CheckBox) fila.FindControl("chkServicio"));
-                if (chkSevicio.Checked)
-                {
-                    var idServicio = int.Parse(((HiddenField)fila.FindControl("hdnServicio")).Value);
-                    chkSevicio.Checked = detalles.Count(det => idServicio.Equals(det.IdServicio)) > 0;
-                }
+                var chkSevicio = ((CheckBox)fila.FindControl("chkServicio"));
+                if (!chkSevicio.Checked) continue;
+
+                var idServicio = int.Parse(((HiddenField)fila.FindControl("hdnServicio")).Value);
+                chkSevicio.Checked = detalles.Count(det => idServicio.Equals(det.IdServicio)) > 0;
             }
 
             CambioServicio(null, null);
@@ -135,19 +142,16 @@ namespace SisRes.Vista
                 Estado = chkEstadoCliente.Checked
             };
             if (new ClientesBo().ObtenerCliente(int.Parse(tbRutCliente.Text.Trim())).RUT <= 0)
-            {
                 new ClientesBo().CrearCliente(cliente);
-            }
             else
-            {
                 new ClientesBo().ActualizarCliente(cliente);
-            }
 
             var reserva = new RES_ReservaHabitacion
             {
                 RUTUsuario = Convert.ToInt32(Session["RUTUsuario"]),
                 RUTCliente = Convert.ToInt32(tbRutCliente.Text),
                 IdHabitacion = Convert.ToInt32(ddlHabitacion.SelectedValue),
+                Observacion = tbObservacion.Text,
                 HoraFechaRes = Convert.ToDateTime(tbFechaReserva.Text),
                 DiasReserva = Convert.ToInt32(ddlDias.SelectedValue),
                 Descuento = new TipoClienteBo().ObtenerTipoCliente(int.Parse(ddlTipoCliente.SelectedValue)).Descuento
@@ -164,6 +168,7 @@ namespace SisRes.Vista
                 mensaje = ModificarReserva(reserva) ? "Reserva actualizada correctamente." : "Error al actualizar la reserva";
             }
 
+            LimpiarControles(null, null);
             ScriptManager.RegisterStartupScript(this, typeof(Page), "Mensaje", @"<script language='javascript' type='text/javascript'>alert('" + mensaje + "');</script>", false);
         }
 
@@ -196,6 +201,9 @@ namespace SisRes.Vista
         private bool IngresarReserva(RES_ReservaHabitacion reserva)
         {
             var idReserva = new ReservaHabitacionBo().CrearReservaHabitacion(reserva);
+            var habitacion = new HabitacionesBo().ObtenerHabitacion(reserva.IdHabitacion);
+            habitacion.Disponible = false;
+            new HabitacionesBo().ActualizarHabitacion(habitacion);
 
             foreach (GridViewRow fila in gvServicios.Rows)
             {
@@ -223,6 +231,9 @@ namespace SisRes.Vista
         public bool ModificarReserva(RES_ReservaHabitacion reserva)
         {
             var idReserva = new ReservaHabitacionBo().ActualizarReservaHabitacion(reserva);
+            var habitacion = new HabitacionesBo().ObtenerHabitacion(reserva.IdHabitacion);
+            habitacion.Disponible = false;
+            new HabitacionesBo().ActualizarHabitacion(habitacion);
             new DetalleReservasBo().EliminarDetalleReserva(idReserva);
 
             foreach (GridViewRow fila in gvServicios.Rows)
@@ -293,6 +304,12 @@ namespace SisRes.Vista
             tbFechaReserva.Text = DateTime.Today.ToShortDateString();
             calFechaReserva.StartDate = DateTime.Today;
 
+
+            ddlHabitacion.DataSource = new HabitacionesBo().ListaHabitaciones(1);
+            ddlHabitacion.DataTextField = "Numero";
+            ddlHabitacion.DataValueField = "IdHabitacion";
+            ddlHabitacion.DataBind(); 
+            
             gvServicios.DataSource = new ServiciosBo().ObtenerServicios();
             gvServicios.DataBind();
 
