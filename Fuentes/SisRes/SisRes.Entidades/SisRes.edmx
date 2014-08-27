@@ -163,6 +163,7 @@
           <Property Name="RUTUsuario" Type="int" Nullable="false" />
           <Property Name="RUTCliente" Type="int" Nullable="false" />
           <Property Name="IdHabitacion" Type="int" Nullable="false" />
+          <Property Name="Observacion" Type="varchar(max)" />
           <Property Name="HoraFechaRes" Type="datetime" Nullable="false" />
           <Property Name="DiasReserva" Type="int" Nullable="false" />
           <Property Name="Descuento" Type="int" Nullable="false" />
@@ -442,6 +443,7 @@
           <Property Type="Int32" Name="RUTUsuario" Nullable="false" />
           <Property Type="Int32" Name="RUTCliente" Nullable="false" />
           <Property Type="Int32" Name="IdHabitacion" Nullable="false" />
+          <Property Type="String" Name="Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="HoraFechaRes" Nullable="false" />
           <Property Type="Int32" Name="DiasReserva" Nullable="false" />
           <Property Type="Int32" Name="Descuento" Nullable="false" />
@@ -670,6 +672,7 @@
                 <ScalarProperty Name="Descuento" ColumnName="Descuento" />
                 <ScalarProperty Name="DiasReserva" ColumnName="DiasReserva" />
                 <ScalarProperty Name="HoraFechaRes" ColumnName="HoraFechaRes" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
                 <ScalarProperty Name="IdHabitacion" ColumnName="IdHabitacion" />
                 <ScalarProperty Name="RUTCliente" ColumnName="RUTCliente" />
                 <ScalarProperty Name="RUTUsuario" ColumnName="RUTUsuario" />
@@ -708,52 +711,52 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="SisRes" ZoomLevel="74">
-        <EntityTypeShape EntityType="SisResModel.GEN_Clientes" Width="1.5" PointX="3" PointY="1" Height="3.3263964843750036" />
-        <EntityTypeShape EntityType="SisResModel.GEN_Rol" Width="1.5" PointX="0.75" PointY="5.125" Height="1.7879850260416745" />
-        <EntityTypeShape EntityType="SisResModel.GEN_TipoCliente" Width="1.5" PointX="0.75" PointY="1.625" Height="1.9802864583333388" />
-        <EntityTypeShape EntityType="SisResModel.GEN_Usuarios" Width="1.5" PointX="3" PointY="5.125" Height="3.326396484374996" />
-        <EntityTypeShape EntityType="SisResModel.HAB_Habitaciones" Width="1.5" PointX="7.625" PointY="1.125" Height="2.7494921875000031" />
-        <EntityTypeShape EntityType="SisResModel.HAB_HabitacionImagenes" Width="1.5" PointX="10.375" PointY="1.125" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="SisResModel.HAB_TipoHabitacion" Width="1.5" PointX="10.375" PointY="3.25" Height="1.9802864583333388" />
-        <EntityTypeShape EntityType="SisResModel.RES_DetalleReserva" Width="1.5" PointX="5.875" PointY="5.125" Height="1.9802864583333388" />
-        <EntityTypeShape EntityType="SisResModel.RES_ReservaHabitacion" Width="1.5" PointX="5.25" PointY="1.125" Height="3.1340950520833388" />
-        <EntityTypeShape EntityType="SisResModel.SER_Servicios" Width="1.5" PointX="8.25" PointY="5.25" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SisResModel.GEN_Clientes" Width="1.5" PointX="2.75" PointY="0.875" Height="3.3263964843750036" />
+        <EntityTypeShape EntityType="SisResModel.GEN_Rol" Width="1.5" PointX="0.75" PointY="4.75" Height="1.7879850260416745" />
+        <EntityTypeShape EntityType="SisResModel.GEN_TipoCliente" Width="1.5" PointX="0.75" PointY="0.875" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SisResModel.GEN_Usuarios" Width="1.5" PointX="2.75" PointY="4.75" Height="3.326396484374996" />
+        <EntityTypeShape EntityType="SisResModel.HAB_Habitaciones" Width="1.5" PointX="7.625" PointY="0.875" Height="2.7494921875000031" />
+        <EntityTypeShape EntityType="SisResModel.HAB_HabitacionImagenes" Width="1.5" PointX="10" PointY="0.875" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="SisResModel.HAB_TipoHabitacion" Width="1.5" PointX="10" PointY="3.25" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SisResModel.RES_DetalleReserva" Width="1.5" PointX="5.375" PointY="5.625" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SisResModel.RES_ReservaHabitacion" Width="1.5" PointX="5.25" PointY="0.875" Height="3.3263964843750031" />
+        <EntityTypeShape EntityType="SisResModel.SER_Servicios" Width="1.5" PointX="7.75" PointY="5.5" Height="1.9802864583333388" />
         <AssociationConnector Association="SisResModel.FK_GEN_CLIE_REFERENCE_GEN_TIPO" >
-          <ConnectorPoint PointX="2.25" PointY="2.6151432291666694" />
-          <ConnectorPoint PointX="3" PointY="2.6151432291666694" />
+          <ConnectorPoint PointX="2.25" PointY="1.8651432291666694" />
+          <ConnectorPoint PointX="2.75" PointY="1.8651432291666694" />
         </AssociationConnector>
         <AssociationConnector Association="SisResModel.FK_RES_RESE_REF_RESER_GEN_CLIE" >
-          <ConnectorPoint PointX="4.5" PointY="2.6920475260416694" />
-          <ConnectorPoint PointX="5.25" PointY="2.6920475260416694" />
+          <ConnectorPoint PointX="4.25" PointY="2.5381982421875016" />
+          <ConnectorPoint PointX="5.25" PointY="2.5381982421875016" />
         </AssociationConnector>
         <AssociationConnector Association="SisResModel.FK_GEN_USUA_REFERENCE_GEN_ROL" >
-          <ConnectorPoint PointX="2.25" PointY="6.0189925130208373" />
-          <ConnectorPoint PointX="3" PointY="6.0189925130208373" />
+          <ConnectorPoint PointX="2.25" PointY="5.6439925130208373" />
+          <ConnectorPoint PointX="2.75" PointY="5.6439925130208373" />
         </AssociationConnector>
         <AssociationConnector Association="SisResModel.FK_RES_RESE_REF_RESER_GEN_USUA" >
-          <ConnectorPoint PointX="4.5" PointY="7.8095914713541674" />
-          <ConnectorPoint PointX="5.53125" PointY="7.8095914713541674" />
-          <ConnectorPoint PointX="5.53125" PointY="4.2590950520833388" />
+          <ConnectorPoint PointX="4.25" PointY="5.15625" />
+          <ConnectorPoint PointX="5.28125" PointY="5.15625" />
+          <ConnectorPoint PointX="5.28125" PointY="4.2013964843750031" />
         </AssociationConnector>
         <AssociationConnector Association="SisResModel.FK_HAB_HABI_REFERENCE_HAB_HABI" >
-          <ConnectorPoint PointX="9.125" PointY="1.9228417968750016" />
-          <ConnectorPoint PointX="10.375" PointY="1.9228417968750016" />
+          <ConnectorPoint PointX="9.125" PointY="1.6728417968750016" />
+          <ConnectorPoint PointX="10" PointY="1.6728417968750016" />
         </AssociationConnector>
         <AssociationConnector Association="SisResModel.FK_HAB_HABI_REFERENCE_HAB_TIPO" >
-          <ConnectorPoint PointX="10.375" PointY="3.5622460937500016" />
-          <ConnectorPoint PointX="9.125" PointY="3.5622460937500016" />
+          <ConnectorPoint PointX="10" PointY="3.4372460937500016" />
+          <ConnectorPoint PointX="9.125" PointY="3.4372460937500016" />
         </AssociationConnector>
         <AssociationConnector Association="SisResModel.FK_RES_RESE_REFERENCE_HAB_HABI" >
-          <ConnectorPoint PointX="7.625" PointY="2.4997460937500016" />
-          <ConnectorPoint PointX="6.75" PointY="2.4997460937500016" />
+          <ConnectorPoint PointX="7.625" PointY="2.2497460937500016" />
+          <ConnectorPoint PointX="6.75" PointY="2.2497460937500016" />
         </AssociationConnector>
         <AssociationConnector Association="SisResModel.FK_RES_DETA_REFERENCE_RES_RESE" >
-          <ConnectorPoint PointX="6.3125" PointY="4.2590950520833388" />
-          <ConnectorPoint PointX="6.3125" PointY="5.125" />
+          <ConnectorPoint PointX="6.0625" PointY="4.2013964843750031" />
+          <ConnectorPoint PointX="6.0625" PointY="5.625" />
         </AssociationConnector>
         <AssociationConnector Association="SisResModel.FK_RES_DETA_REFERENCE_SER_SERV" >
-          <ConnectorPoint PointX="8.25" PointY="6.1776432291666694" />
-          <ConnectorPoint PointX="7.375" PointY="6.1776432291666694" />
+          <ConnectorPoint PointX="7.75" PointY="6.5526432291666694" />
+          <ConnectorPoint PointX="6.875" PointY="6.5526432291666694" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

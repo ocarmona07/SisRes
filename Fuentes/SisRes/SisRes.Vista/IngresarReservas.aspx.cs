@@ -1,4 +1,6 @@
-﻿namespace SisRes.Vista
+﻿using System.Linq;
+
+namespace SisRes.Vista
 {
     using System;
     using System.Web.UI;
@@ -42,10 +44,50 @@
             for (var i = 1; i < 100; i++) ddlDias.Items.Add(i + "");
 
             tbFechaReserva.Text = DateTime.Today.ToShortDateString();
+            tbFechaReserva.Attributes.Add("readonly", "readonly");
             calFechaReserva.StartDate = DateTime.Today;
             tbHabitacionPrecio.Text = "$ " + tipoHabitacion[0].Precio;
             tbDescuento.Text = "0%";
             tbPrecioTotal.Text = "$ " + tipoHabitacion[0].Precio;
+
+            if (string.IsNullOrEmpty(Request.QueryString["idReserva"])) return;
+
+            hdnIdReserva.Value = Request.QueryString["idReserva"];
+            LimpiarControles(null, null);
+
+            var reserva = new ReservaHabitacionBo().ObtenerReservaHabitacion(int.Parse(hdnIdReserva.Value));
+            var cliente = new ClientesBo().ObtenerCliente(reserva.RUTCliente);
+            var habitacion = new HabitacionesBo().ObtenerHabitacion(reserva.IdHabitacion);
+            var detalles = new DetalleReservasBo().ObtenerDetallesReservas();
+            tbRutCliente.Text = reserva.RUTCliente + "";
+            tbDvCliente.Text = cliente.DV;
+            tbNombres.Text = cliente.Nombres;
+            tbApPaterno.Text = cliente.ApPaterno;
+            tbApMaterno.Text = cliente.ApMaterno;
+            tbFono.Text = cliente.Fono + "";
+            tbDireccion.Text = cliente.Direccion;
+            tbEmail.Text = cliente.Email;
+            tbObservacion.Text = reserva.Observacion;
+            tbDescuento.Text = reserva.Descuento + "%";
+            tbFechaReserva.Text = reserva.HoraFechaRes.ToShortDateString();
+            chkEstadoCliente.Checked = cliente.Estado;
+
+            ddlTipoCliente.SelectedValue = cliente.IdTipoCliente + "";
+            ddlTipoHabitacion.SelectedValue = habitacion.IdTipoHabitacion + "";
+            ddlHabitacion.SelectedValue = habitacion.Numero + "";
+            ddlDias.SelectedValue = reserva.DiasReserva + "";
+
+            foreach (GridViewRow fila in gvServicios.Rows)
+            {
+                var chkSevicio = ((CheckBox) fila.FindControl("chkServicio"));
+                if (chkSevicio.Checked)
+                {
+                    var idServicio = int.Parse(((HiddenField)fila.FindControl("hdnServicio")).Value);
+                    chkSevicio.Checked = detalles.Count(det => idServicio.Equals(det.IdServicio)) > 0;
+                }
+            }
+
+            CambioServicio(null, null);
         }
 
         /// <summary>
@@ -222,6 +264,39 @@
             var descuento = new TipoClienteBo().ObtenerTipoCliente(int.Parse(ddlTipoCliente.SelectedValue)).Descuento;
             precioTotal = precioTotal - ((descuento * precioTotal) / 100);
             tbPrecioTotal.Text = "$ " + (precioTotal * int.Parse(ddlDias.SelectedValue));
+        }
+
+        /// <summary>
+        /// Método que resetea los controles del formulario
+        /// </summary>
+        /// <param name="sender">Objeto del evento</param>
+        /// <param name="e">Argumentos del evento</param>
+        protected void LimpiarControles(object sender, EventArgs e)
+        {
+            tbRutCliente.Text = string.Empty;
+            tbDvCliente.Text = string.Empty;
+            tbNombres.Text = string.Empty;
+            tbApPaterno.Text = string.Empty;
+            tbApMaterno.Text = string.Empty;
+            tbFono.Text = string.Empty;
+            tbDireccion.Text = string.Empty;
+            tbEmail.Text = string.Empty;
+            tbObservacion.Text = string.Empty;
+            tbDescuento.Text = "0%";
+            chkEstadoCliente.Checked = true;
+
+            ddlTipoCliente.SelectedIndex = -1;
+            ddlTipoHabitacion.SelectedIndex = -1;
+            ddlHabitacion.SelectedIndex = -1;
+            ddlDias.SelectedIndex = -1;
+
+            tbFechaReserva.Text = DateTime.Today.ToShortDateString();
+            calFechaReserva.StartDate = DateTime.Today;
+
+            gvServicios.DataSource = new ServiciosBo().ObtenerServicios();
+            gvServicios.DataBind();
+
+            CambioServicio(null, null);
         }
     }
 }

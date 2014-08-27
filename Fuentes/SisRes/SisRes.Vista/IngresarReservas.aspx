@@ -26,18 +26,24 @@
                 </asp:TableCell>
                 <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left">
                     <asp:TextBox ID="tbNombres" runat="server" Width="160px" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="tbNombres" Text="*"
+                        ForeColor="red" InitialValue="" Style="margin-left: 3px;" ValidationGroup="Reserva" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Right">
                         <asp:Label runat="server" Text="Ap. Paterno:" Style="padding-right: 5px;" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left">
                     <asp:TextBox ID="tbApPaterno" runat="server" Width="150px" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="tbApPaterno" Text="*"
+                        ForeColor="red" InitialValue="" Style="margin-left: 3px;" ValidationGroup="Reserva" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Right">
                         <asp:Label runat="server" Text="Ap. Materno:" Style="padding-right: 5px;" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left">
                     <asp:TextBox ID="tbApMaterno" runat="server" Width="150px" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="tbApMaterno" Text="*"
+                        ForeColor="red" InitialValue="" Style="margin-left: 3px;" ValidationGroup="Reserva" />
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow runat="server" HorizontalAlign="Center">
@@ -45,7 +51,9 @@
                         <asp:Label runat="server" Text="Teléfono:" Style="padding-right: 5px;" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left">
-                    <asp:TextBox ID="tbFono" runat="server" Width="110px" MaxLength="10" />
+                    <asp:TextBox ID="tbFono" runat="server" Width="110px" MaxLength="9" />
+                    <asp:RangeValidator runat="server" ControlToValidate="tbFono" Type="Integer" MinimumValue="1"
+                        MaximumValue="999999999" Text="*" Style="margin-left: 3px;" ValidationGroup="Reserva" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Right" Height="30px">
                         <asp:Label runat="server" Text="Dirección:" Style="padding-right: 5px;" />
@@ -155,7 +163,7 @@
                         <asp:Label runat="server" Text="Fecha de Reserva:" Style="padding-right: 5px;" />
                 </asp:TableCell>
                 <asp:TableCell runat="server" VerticalAlign="Middle" HorizontalAlign="Left">
-                    <asp:TextBox runat="server" ID="tbFechaReserva" Width="80px" ReadOnly="True" />
+                    <asp:TextBox runat="server" ID="tbFechaReserva" Width="80px" />
                     <asp:ImageButton runat="server" ID="ibFechaReserva" ImageUrl="~/Images/calendar.png"
                         Style="margin-left: 10px; margin-bottom: -5px;" OnClientClick="return false;" />
                     <act:CalendarExtender ID="calFechaReserva" runat="server" TargetControlID="tbFechaReserva"
@@ -184,12 +192,19 @@
         <br />
     </asp:Panel>
     <br />
-    <br />
-    <div style="text-align: center;">
-        <asp:HiddenField runat="server" ID="hdnIdReserva" />
-        <asp:Button runat="server" ID="btnIngresarReserva" Text="Ingresar Reserva" Width="150px"
-            Height="30px" OnClick="IngresarReserva" CausesValidation="True" ValidationGroup="Habitacion" />
-    </div>
+    <asp:Table runat="server" HorizontalAlign="Center" Width="100%">
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server" Width="200px" HorizontalAlign="Center">
+                <asp:HiddenField runat="server" ID="hdnIdReserva" />
+                <asp:Button runat="server" ID="btnIngresarReserva" Text="Ingresar Reserva" Width="150px"
+                    Height="30px" OnClick="IngresarReserva" CausesValidation="True" ValidationGroup="Reserva" />
+            </asp:TableCell>
+            <asp:TableCell runat="server" Width="200px" HorizontalAlign="Center">
+                <asp:Button runat="server" ID="btnLimpiar" Text="Limpiar" Width="100px" Height="30px"
+                    OnClick="LimpiarControles" />
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
     <br />
     <div runat="server" id="divBuscarCliente" visible="False">
     </div>

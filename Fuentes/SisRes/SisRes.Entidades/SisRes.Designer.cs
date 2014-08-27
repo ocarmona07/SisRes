@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region Metadatos de relaciones en EDM
@@ -239,6 +240,7 @@ namespace SisRes.Entidades
         private ObjectSet<SER_Servicios> _SER_Servicios;
 
         #endregion
+
         #region Métodos AddTo
     
         /// <summary>
@@ -322,11 +324,11 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entidades
     
     /// <summary>
@@ -363,6 +365,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -609,6 +612,7 @@ namespace SisRes.Entidades
         partial void OnEstadoChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -673,6 +677,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -699,6 +704,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -777,6 +783,7 @@ namespace SisRes.Entidades
         partial void OnDescripcionChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -803,6 +810,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -831,6 +839,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -933,6 +942,7 @@ namespace SisRes.Entidades
         partial void OnDescuentoChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -959,6 +969,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -997,6 +1008,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -1243,6 +1255,7 @@ namespace SisRes.Entidades
         partial void OnEstadoChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -1307,6 +1320,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1339,6 +1353,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -1489,6 +1504,7 @@ namespace SisRes.Entidades
         partial void OnReservaChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -1575,6 +1591,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1601,6 +1618,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -1658,6 +1676,7 @@ namespace SisRes.Entidades
         partial void OnImagenChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -1700,6 +1719,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1728,6 +1748,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -1830,6 +1851,7 @@ namespace SisRes.Entidades
         partial void OnPrecioChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -1856,6 +1878,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1884,6 +1907,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -1968,6 +1992,7 @@ namespace SisRes.Entidades
         partial void OnPrecioChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -2048,6 +2073,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2084,6 +2110,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -2188,6 +2215,30 @@ namespace SisRes.Entidades
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Observacion
+        {
+            get
+            {
+                return _Observacion;
+            }
+            set
+            {
+                OnObservacionChanging(value);
+                ReportPropertyChanging("Observacion");
+                _Observacion = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Observacion");
+                OnObservacionChanged();
+            }
+        }
+        private global::System.String _Observacion;
+        partial void OnObservacionChanging(global::System.String value);
+        partial void OnObservacionChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime HoraFechaRes
@@ -2258,6 +2309,7 @@ namespace SisRes.Entidades
         partial void OnDescuentoChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -2398,6 +2450,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2426,6 +2479,7 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
         #region Propiedades primitivas
     
         /// <summary>
@@ -2528,6 +2582,7 @@ namespace SisRes.Entidades
         partial void OnPrecioChanged();
 
         #endregion
+
     
         #region Propiedades de navegación
     
@@ -2554,8 +2609,10 @@ namespace SisRes.Entidades
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

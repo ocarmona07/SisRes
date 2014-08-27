@@ -238,6 +238,15 @@ namespace SisRes.Vista {
         protected global::System.Web.UI.WebControls.Button btnIngresarReserva;
         
         /// <summary>
+        /// Control btnLimpiar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLimpiar;
+        
+        /// <summary>
         /// Control divBuscarCliente.
         /// </summary>
         /// <remarks>

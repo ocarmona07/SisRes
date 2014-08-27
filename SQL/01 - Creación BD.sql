@@ -138,6 +138,7 @@ CREATE TABLE RES_ReservaHabitacion
       RUTUsuario INT NOT NULL ,
       RUTCliente INT NOT NULL ,
       IdHabitacion INT NOT NULL ,
+      Observacion VARCHAR(MAX) NULL ,
       HoraFechaRes DATETIME NOT NULL ,
       DiasReserva INT NOT NULL ,
       Descuento INT NOT NULL ,

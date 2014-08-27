@@ -39,16 +39,7 @@
             switch (e.CommandName)
             {
                 case "Editar":
-                    //CrearEvento(null, null);
-                    //var editarEvento = new EventosBo().ObtenerEvento(int.Parse(e.CommandArgument.ToString()));
-                    //hdnIdEvento.Value = e.CommandArgument.ToString();
-                    //ddlEventoRequerimiento.SelectedValue = editarEvento.EVE_REQ_ID.ToString(CultureInfo.InvariantCulture);
-                    //ddlEventoEstado.SelectedValue = editarEvento.EVE_EST_ID.ToString(CultureInfo.InvariantCulture);
-                    //ibEventoAdjunto.CommandArgument = editarEvento.EVE_ADJUNTO;
-                    //tbEventoNombreResponsable.Text = editarEvento.EVE_RESPONSABLE;
-                    //tbEventoDescripcion.Text = editarEvento.EVE_DESCRIPCION;
-                    //tbEventoFecha.Text = editarEvento.EVE_FECHA.ToShortDateString();
-                    //btnEventoCrear.Text = "Modificar";
+                    Response.Redirect("IngresarReservas.aspx?idReserva=" + e.CommandArgument);
                     break;
 
                 case "Eliminar":
