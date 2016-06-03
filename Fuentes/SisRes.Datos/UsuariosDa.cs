@@ -37,12 +37,15 @@
             {
                 _sisResEntities.GEN_Usuarios.AddObject(usuario);
                 idRetorno = _sisResEntities.SaveChanges();
-                _sisResEntities.Dispose();
                 return idRetorno;
             }
             catch (Exception)
             {
                 return idRetorno;
+            }
+            finally
+            {
+                _sisResEntities.Dispose();
             }
         }
 
